@@ -51,16 +51,16 @@ Whether you believe it is the sexiest subject or not, it is incontrovertible tha
 
 ### Course Material {-}
 
-The materials on this website and in the Lab Manual will introduce you to the seminal ideas underlying the discipline of statistics. In addition, they have been designed with your learning in mind. For example, many of the class activities were developed using pedagogical principles, such as small group activities and discussion, that have been shown in research to improve student learning. 
+The materials on this website and in the lab manual will introduce you to the seminal ideas underlying the discipline of statistics. In addition, they have been designed with your learning in mind. For example, many of the class activities were developed using pedagogical principles, such as small group activities and discussion, that have been shown in research to improve student learning. 
 
 Course readings should be completed outside of class and are intended to help you learn and extend the ideas, skills, and concepts you learn in the classroom. The readings themselves are not all "traditional" readings in the sense of words written on the screen, but instead often link to video clips, blogs and other multimedia material. 
 
-The Lab Manual can be obtained [here](https://github.com/zief0002/Statistical-Thinking/blob/master/Statistical-Thinking-v3.pdf?raw=true). You will need to bring a copy of the lab manual (physical or electronic) with you to class every day. 
+The [lab manual can be obtained here](https://github.com/zief0002/Statistical-Thinking/blob/master/Statistical-Thinking-v3.pdf?raw=true). You will need to bring a copy of the lab manual (physical or electronic) with you to class every day. 
 
 
 ### TinkerPlots&trade; Software {-}
 
-Much of the material presented in the [Lab Manual](https://github.com/zief0002/Statistical-Thinking/blob/master/Statistical-Thinking-v3.pdf?raw=true) requires the use of TinkerPlots&trade;. This software can be downloaded (for Mac or PC), and a license can be purchased from [http://www.tinkerplots.com/](http://www.tinkerplots.com/).
+Much of the material presented in the lab manual requires the use of TinkerPlots&trade;. This software can be downloaded (for Mac or PC), and a license can be purchased from [http://www.tinkerplots.com/](http://www.tinkerplots.com/).
 
 
 ### Data Sets {-}
@@ -69,7 +69,7 @@ The data sets used in the [Lab Manual](https://github.com/zief0002/Statistical-T
 
 ### Participation in the Learning Process {-}
 
-The [Lab Manual](https://github.com/zief0002/Statistical-Thinking/blob/master/Statistical-Thinking-v3.pdf?raw=true), instructors, and teaching assistants are all resources that are at your disposal to help you learn the material. In the end, however, you will have to do all of the hard work associated with actually learning that material. To successfully navigate this process, it is vital that you be an active participant in the learning process. Coming to class, participating in the activities and discussions, reading, completing the assignments, and asking questions are essential to successful learning.
+The lab manual, instructors, and teaching assistants are all resources that are at your disposal to help you learn the material. In the end, however, you will have to do all of the hard work associated with actually learning that material. To successfully navigate this process, it is vital that you be an active participant in the learning process. Coming to class, participating in the activities and discussions, reading, completing the assignments, and asking questions are essential to successful learning.
 
 Learning anything new takes time and effort and this is especially true of learning statistics, as you are not just learning a set of methods, but rather a disciplined way of thinking about the world. Changing your habits of mind will take continual practice. It will also take a great deal of patience and persistence. 
 
@@ -187,12 +187,154 @@ In practice, statisticians often use incredibly complex models to generate their
 For example, in their examination of *Madden NFL 11*, Electronic Arts used 46 features to model players' preferences, including their control usage, performance, and play-calling style. This is but one example of using simulation in video games. To see other applications of how data are being used in video game design, watch the webinar, [How Big Data and Statistical Modeling are Changing Video Games](http://blog.revolutionanalytics.com/2013/06/how-big-data-and-statistical-modeling-are-changing-video-games.html).
 
 
+# Hypothesis Evaluation {-}
+
+In the course activities and homework assignments, you have been using probability models to generate random outcomes. You have also learned how to use Monte Carlo simulation to generate many data sets from a given model. This is the same kind of process that researchers, scientists, and statisticians engage in when they evaluate (or test) hypotheses about the world. 
+
+
+To illustrate the ideas behind statistical hypothesis testing, consider how you might go about testing a coin for "fairness". You might have suggested something along the lines of "flip the coin many times and keep track of the number of heads and tails". Suppose you tossed the coin 100 times, which resulted in 53 heads and 47 tails. Would you say the coin is "unfair"? What if you had obtained 65 heads and 35 tails instead? Now would you say the coin is "unfair"? How about if you had gotten 84 heads and only 16 tails?
+
+The first result of 53 heads and 47 tails probably did not seem that far fetched to you, and you probably would feel at ease saying that the coin that produced such a result is most likely "fair". On the other hand, the results of 65 heads and 35 tails&mdash;and especially 84 heads and 16 tails&mdash;likely made you feel uncomfortable about declaring the coin "fair". 
+
+Why is this? It is because you had a mental model of the distribution of heads and tails that you expect when the coin actually IS "fair". For most people, this mental model encompasses a [uniform distribution of the outcomes](http://en.wikipedia.org/wiki/Uniform_distribution_(discrete)) (e.g., a 50:50 split between heads and tails). If the observed result of the 100 coin flips is consistent with the model of a "fair" coin, you might conclude that the coin is "fair". For example, the result of 53 heads from 100 flips is very close to the 50:50 split of heads and tails, and  it is probably safe to say that a “fair” coin could have produced the set of flips in question. In this case, the data are consistent with the model of "fairness".
+
+If the observed result deviates from what is expected under the model of a "fair" coin, for example the two results of 65 heads and 84 heads, you might end up rejecting the hypothesis that the coin was "fair". In these two cases, the data are inconsistent with the model of "fairness".
+
+One thing you may have realized is that we expect variation in the results just because of chance (randomness). For example, if you flipped 100 coins over and over (say, 500 times), you would not get 50 heads every time. Knowing the amount of variation that is expected is how we can judge whether data are consistent or inconsistent with the model. Luckily, we can model the expected variation using Monte Carlo simulation.
+
+### Simulation Process for Evaluating Hypotheses {-}
+
+The process we will use for evaluating a hypothesis is:
+
+(1) Create a model that conforms to the hypothesis to be evaluated.
+(2) Use the selected model to generate many, many sets of data (Monte Carlo simulation). The results you collect and pool together from these trials will give a picture of the variation you would expect under the hypothesized model.
+(3) Evaluate whether the results observed in the actual data (not the simulated data) are consistent with the expected results produced from the model. This acts as evidence to either support or dispute the hypotheis. 
+
+To help you remember this process, you can use the more simplistic:
+
+- Model
+- Simulate
+- Evaluate
+
+This may sound like a straight-forward process, but in practice it can actually be quite complex&mdash;especially as you are reading research articles and trying to interpret the findings. First off, the model that is selected is often not provided, nor described, explicitly within most research articles. It is often left to the reader to figure out what the assumed model was. At first, this may be quite difficult, but like most tasks, as you gain experience in this course and as you read more research, you find that there are a common set of models that are typically used by researchers.
+
+The model that you use in the Monte Carlo simulation is directly related to the hypothesis you make about a research question. Often researchers explicitly state hypotheses about their research questions. Hypotheses are simply statements of possible explanations for an observed set of data. For example, one possible explanation for the observed set of coin flips is:
+
+> The coin used to generate the set of observed coin flips is a "fair" coin; which would produce (in the long run) a uniform distribution of heads and tails. 
+
+One complication that you may encounter is that many statisticians and researchers write their hypotheses mathematically. The advantage to writing a hypothesis mathematically is that it explicitly defines the model that will be used in the Monte Carlo simulation. Consider the stated hypothesis that the coin used to generate the set of observed coin flips is a "fair" coin that produces a uniform distribution of heads and tails. Recall that producing a uniform distribution of heads and tails means that heads and tails are equally likely under this model (i.e., a 50:50 split). We could express this hypothesis more mathematically as: 
+
+> The model produces heads (and tails) with a probability of 0.5. 
+
+Symbolically, we would express this hypothesis as:
+
+$$
+H_0: \pi_{\mathrm{Heads,~Tails}} = 0.5
+$$
+
+The symbol $H_0$ is common and indicates a hypothesis about a model. Here, $\pi$ is the greek letter pi and means "probability" or "proportion". (Typically in symbolic notation for hypotheses, pi is not the mathematical constant of 3.14.) Statisticians typically use Greek letters to identify probabilities of the outcomes in a model.^[**Greek vs. Roman Letters** <br /> Greek letters are used when the parameters of a model are being described. In contrast, Roman letters are used to describe observed results. For example, go back to the situation in which the observed data consisted of 53 heads and 47 tails from 100 flips of a coin. <br /><br /> Here we would say $p_{\mathrm{Heads}} = 0.53$. The hypothesis about the model we are evaluating produces heads with a probability of 0.5, so $\pi_{\mathrm{Heads,~Tails}} = 0.5$. <br /><br /> Rather than use the Roman letters, some statisticians prefer to put a "hat" on the Greek letter to refer to the observed result. For example, $\hat{\pi}_{\mathrm{Heads}}=0.53$. <br /><br /> In this course we are not as concerned about which notation you use to express the result observed in the actual data. In fact, it might be less confusing if you just write, *the observed result is 0.53*.] In this hypothesis, we are establishing that the model we are evaluating generates heads (and tails) with a probability of 0.5. 
+
+Notice how the model is completely defined using the mathematical notation. The hypothesis states that the model has two potential outcomes (heads and tails), and the probability of each is 0.5. Pretty cool, huh? Although the more qualitative hypothesis that the coin used to generate the set of observed coin flips is a "fair" coin that produces a uniform distribution of heads and tails may seem more understandable (at least right now), 
+
+
+If this all seems like gibberish to you right now, do not worry about it. You can always write hypotheses descriptively, without resorting to the symbolic notation. Remember, we wrote the EXACT SAME hypothesis three different ways. If you are comfortable with the mathematical symbols, use it; the mathematical notation acts as a shorthand to quickly state a hypothesis and define the model used. As you read research articles or take other courses, you will see statistical hypotheses stated in many ways, so it is good to understand that there are many ways to express the same thing.
 
 
 
 
+### Outline and Goals of Unit 2 {-}
+
+The following schematic outlines the course readings, in-class activities, and assignments for Unit 2.
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='left'}
+knitr::include_graphics("img/unit-02-outline.png")
+```
+
+<br />
+
+In the readings, course activities, and assignments in Unit 2, you will explore the process of evaluating statistical hypotheses. You will be introduced to several common models that used by researchers and statisticians. You will also use TinkerPlots&trade; to generate simulated data to study the variation in results that would be expected under these models. Many of these models are directly related to the chance models that you have explored in the course to this point. For example, you should already be able to use TinkerPlots&trade; to produce results that would be expected from 100 flips of a "fair" coin. 
+
+Aside from learning about some of the more common models used in research, you will also learn how to describe and formally quantify the variation in a distribution. This is helpful as we evaluate whether a particular result in observed data is consistent with results produced from the given model. Lastly, you will learn about common misconceptions regarding model evaluation (e.g., we can never say a model produced the data, only that it produces results consistent with the data), and how to use probabilistic languge when providing an "answer" to a research question.
 
 
+# Describing Distributions {-}
+
+One of the important steps in any statistical analysis is that of summarizing data. It is good practice to examine both a graphical and a numerical summarization of your data. These summarizations are often part of the evidence that researchers use to support any conclusions drawn from the data. They also allow researchers to discover structure that might have otherwise been overlooked in the raw data that was actually collected. Lastly, both graphical and numerical summaries of the data often point to other analyses that may be undertaken with the data.
+
+Once raw data has been collected in a study, it can be overwhelming to pull any kind of meaning out of it. For example, it is not uncommon for Google to be dealing with millions of cases. How can Google&mdash;or any researcher for that matter&mdash;go from all of that raw data to something that can help them answer their research questions?
+
+Rather than examining all of those cases individually, researchers examine the data collectively, often by plotting it. This is what is meant by a graphical summary of the data; it is quite literally, a picture of the distribution.
+
+There are many, many different types of plots that have been created to graphically summarize data. Each can provide a slightly different representation of the data. Metaphorically, you can imagine each of these different plot types as a different photo taken of the exact same person. Some may be color, others black and white. Some may be taken from different perspectives, angles or distances. While all photographs "summarize" the same person, you may notice characteristics of that person in some photos that are not evident in others. Many of the photos, however, will show the same thing. 
 
 
+### Shape {-}
 
+The dot plot that TinkerPlots&trade; provides is a very useful plot.^[TinkerPlots&trade; also provides other types of plots, including the box plot (sometimes called the box-and-whiskers plot) and the hat plot (a variation of the box plot).] It allows us to summarize the shape of the distribution very easily. Shape is used to describe a distribution’s symmetry. As you might expect, symmetric distributions are shaped the same on either side of the center. (Another way of thinking about this is that if you folded the distribution at the center, the folded half of the distribution would align pretty well on top of the other half.) For example, "bell-shaped" ("approximately normal") distributions are symmetric. 
+
+When a distribution is asymmetric, it is referred to as a **skewed** distribution. The distribution shown in Figure 1 is a skewed distribution. In this distribution, there appears to be a longer tail on the right side of the distribution. Because the tail is on the right side of the distribution, statisticians would say it is "skewed to the right" or "positively skewed". In a similar way, a distribution that tails to the left is "skewed to the left" or "negatively skewed".
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='center', fig.cap='This distribution is skewed to the right, or positively skewed.'}
+knitr::include_graphics("img/skewed-right.png")
+```
+
+<br />
+
+
+### Location {-}
+
+Aside from the overall shape of the distribution, it is also useful to summarize the location of the distribution. The location of the distribution provides a summarization of a so-called "typical" value for the data. A "typical" value can be estimated from the plot of the distribution. You can also use more formally calculated summaries of the location such as the mean, median, or mode. These values are easily calculated using TinkerPlots&trade;.
+
+When looking at a plot of a distribution, data analysts often consider the number of modes or "humps" that are seen in a plot of the distribution. Here, the concept of mode is slightly different (although related) to the concept of mode that you may have learned in previous mathematics or statistics courses. The mode of a distribution gives a general sense of the values or measurements that occur frequently. This may be a single number, but many times is not. For example, the first hump of the distribution shown in the figure below suggests that values around nine are very common. The actual value of nine, however, may only show up once or twice in the data.
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='center', fig.cap='A bimodal distribution showing two modes. One mode is around 9, and the other is near 12.'}
+knitr::include_graphics("img/bimodal.png")
+```
+
+<br />
+
+A distribution can be **unimodal** (one mode), **bimodal** (two modes), **multimodal** (many modes), or **uniform** (no modes). The distribution shown above is bimodal&mdash;notice there are two humps. Uniform distributions have roughly the same frequency for all possible values (they look essentially flat) and thus have no modes.
+
+### Variation {-}
+
+The other characteristic of a distribution that should be summarized is the variation. Summarizing the variation gives an indication of how variable the data are. One method of numerically summarizing the variability in the data is to quantify how close the observations are relative to the "typical" value on average. Are the observations for the most part close to the "typical" value? Far away from the "typical" value? How close?
+
+It turns out, that the shape of the distribution also helps describe the variation in the data. For example, "bell-shaped" distributions have most observations close to the "typical" value, and more extreme observations show up both below and above the "typical" value (the variation is the same on both sides of the "typical" value). Whereas skewed distributions have many observations near the "typical" value, but extreme values only deviate from this value in one direction (there is more variation in the data on one side of the "typical" value than the other).
+
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='center', fig.cap='Most of the observations in this distribution are clustered between 0 and 2. There are some observations greater than 2 (up to 10), although these are rare.'}
+knitr::include_graphics("img/right-skewed.png")
+```
+
+<br />
+
+One thing that affects the variation, and should be described is whether there are observations that stand out from the other observations. Often these observations have extremely large or small values relative to the other observations. These observations are referred to as **potential outliers**, or **extreme cases**. For example, in the positively skewed distribution shown previously, the observation that has a value near 10 would likely be considered a potential outlier.
+
+### Putting It All Together {-}
+
+[Rotten Tomatoes](https://www.rottentomatoes.com/) is a website which aggregates movie critics' reviews of films. The website marks each review as either positive or negative and then gives the film a score based on the percentage of positive reviews. In addition to the critics' score, each film is also given a score based on reviews from the general public using the same methodology (reviews are tabulated so that the score represents the percentage of positive reviews from the general public).
+
+The plot shown below shows a dot plot of the distribution of scores for 134 movies released in 2009.
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='center', fig.cap='The scores for 134 movies released in 2009 based on the general public’s reviews. The scores represent the percentage of positive reviews for each movie.'}
+knitr::include_graphics("img/rotton-tomatoes.png")
+```
+
+<br />
+
+A written description of the distribution might read as follows:
+
+> The distribution of scores for this sample of 134 movies is fairly symmetric. The median score for these movies is near 60, indicating that a typical movie released in 2009 is positively reviewed by about 60% of the public. The distribution also indicates that there is a lot of variation in the movies’ scores. Most of the movies in the sample have a score between 35 and 85, suggesting large differences in the public’s opinion of the quality of these movies.
+
+
+Notice that the description incorporates the context of the data, in this case film scores. This helps a reader to interpret the description.
