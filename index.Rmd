@@ -76,7 +76,7 @@ Learning anything new takes time and effort and this is especially true of learn
 As you engage in and use the skills, concepts and ideas introduced in the material, you will find yourself thinking about data and evidence in a different way. This may lead you to make different decisions or choices. But, even if this course does not change your world overnight, you will at the very least be able to critically think about inferences and conclusions drawn from data.
 
 
-# Modeling &amp; Simulation {-}
+# Unit 1: Modeling &amp; Simulation {-}
 
 > There is mounting evidence that the "model-building era"" that dominated the theoretical activities of the sciences for a long time is about to be succeeded or at least lastingly supplemented by the "simulation era".^[Hartmann, S. (2005). *The world as a process: Simulations in the natural and social sciences.* [http://philsci-archive.pitt.edu/2412/](http://philsci-archive.pitt.edu/2412/)]
 
@@ -187,7 +187,7 @@ In practice, statisticians often use incredibly complex models to generate their
 For example, in their examination of *Madden NFL 11*, Electronic Arts used 46 features to model players' preferences, including their control usage, performance, and play-calling style. This is but one example of using simulation in video games. To see other applications of how data are being used in video game design, watch the webinar, [How Big Data and Statistical Modeling are Changing Video Games](http://blog.revolutionanalytics.com/2013/06/how-big-data-and-statistical-modeling-are-changing-video-games.html).
 
 
-# Hypothesis Evaluation {-}
+# Unit 2: Hypothesis Evaluation {-}
 
 In the course activities and homework assignments, you have been using probability models to generate random outcomes. You have also learned how to use Monte Carlo simulation to generate many data sets from a given model. This is the same kind of process that researchers, scientists, and statisticians engage in when they evaluate (or test) hypotheses about the world. 
 
@@ -311,7 +311,7 @@ It turns out, that the shape of the distribution also helps describe the variati
 <br />
 
 ```{r out.width="50%", echo=FALSE, fig.align='center', fig.cap='Most of the observations in this distribution are clustered between 0 and 2. There are some observations greater than 2 (up to 10), although these are rare.'}
-knitr::include_graphics("img/right-skewed.png")
+knitr::include_graphics("img/skewed-right.png")
 ```
 
 <br />
@@ -320,9 +320,7 @@ One thing that affects the variation, and should be described is whether there a
 
 ### Putting It All Together {-}
 
-[Rotten Tomatoes](https://www.rottentomatoes.com/) is a website which aggregates movie critics' reviews of films. The website marks each review as either positive or negative and then gives the film a score based on the percentage of positive reviews. In addition to the critics' score, each film is also given a score based on reviews from the general public using the same methodology (reviews are tabulated so that the score represents the percentage of positive reviews from the general public).
-
-The plot shown below shows a dot plot of the distribution of scores for 134 movies released in 2009.
+[Rotten Tomatoes](https://www.rottentomatoes.com/) is a website which aggregates movie critics' reviews of films. The website marks each review as either positive or negative and then gives the film a score based on the percentage of positive reviews. In addition to the critics' score, each film is also given a score based on reviews from the general public using the same methodology (reviews are tabulated so that the score represents the percentage of positive reviews from the general public). The plot shown below shows a dot plot of the distribution of the general public's scores for 134 movies released in 2009.
 
 <br />
 
@@ -338,3 +336,257 @@ A written description of the distribution might read as follows:
 
 
 Notice that the description incorporates the context of the data, in this case film scores. This helps a reader to interpret the description.
+
+
+# Unit 3: Randomization Tests {-}
+
+> The nature of doing science, be it natural or social, inevitably calls for comparison. Statistical methods are at the heart of such comparison, for they not only help us gain understanding of the world around us but often define how our research is to be carried out.^[Liao, T. F. (2002). *Statistical group comparison.* New York: Wiley.]
+
+Drawing inferences about the differences between groups is an almost daily occurrence in the lives of most people. In any given hour of any given day, television, radio and social media abound with comparisons. For example, data scientists at [OKCupid](https://www.okcupid.com/), an online dating site, examined whether frequent tweeters (users of Twitter) have shorter real-life relationships than others.^[The website [OKTrends](http://blog.okcupid.com/) includes an answer to this question, as well as many others.]
+
+Group comparisons are at the heart of many interesting questions addressed by psychologists, physicians, scientists, teachers, and engineers. Questions about group differences are often studied through scientific experiements. When considering a scientific experiment to examine group differences, the design of the study plays a very important role. To help understand this, think about a researcher who is studying the efficacy of a new cold medication. Let's say that the researcher has 100 people (each with a cold) who volunteer to be a part of her study. Let's consider how she might design her study.
+
+- **Design 1:** She gives the cold medicine to all 100 volunteers.
+- **Design 2:** She gives the cold medicine to the first 50 volunteers (treatment group) and nothing to the other 50 volunteers (control group).
+- **Design 3:** She randomly picks 50 volunteers to whom she gives the cold medicine (treatment group), and she gives nothing to the other 50 volunteers (control group).
+
+All three designs have been used, and are still used, in research studies. There are pros and cons to each of the designs, and all are useful depending on what you want to know. 
+
+In Design 1, it is hard to judge the efficacy of the medication. For example, what if 60 of the volunteers had no cold symptoms after four days. Did the medication work? You might be thinking, "what would have happened if they hadn't received any medication?" That is a great question. In this design, we don't know.
+
+Design 2 gives the researcher a comparison group. She can compare the number of volunteers in each group who have no cold symptoms after four days. This is a better design than Design 1 for examining efficacy. But, what if she found that after four days, 35 of the volunteers who got the medication had no symptoms, while only 25 of the volunteers who didn't receive medication had no symptoms. Is this enough evidence for her to say the cold medication is effective? Probably not. Maybe most of the volunteers in the treatment group were already in later stages of their colds. Maybe they had more robust immune systems to begin with (e.g., due to differing exercise or nutrition habits) than the control group. You can imagine many such reasons that the treatment group would show quicker improvement than the control group.
+
+Design 3 has the same comparison group advantage as Design 2. The big difference, however, is that the volunteers were put into the groups at random. By assigning participants at random, the researcher "equalizes" the treatment and control groups. (You will study this more in Unit 4.) For now, what this means is that the groups have, on average, the SAME nutritional habits, the SAME exercise habits, and the SAME everything-else. That means that the only thing that is different between the two groups is that the treatment group got the cold medication and the control grou didn't. If the researcher uses this type of design, she can draw much stronger inferences about WHY the treatment group improved: it was because of the cold medication!
+
+### Experimental Variation {-}
+
+Let's say our hypothetical researcher used a srong design in which she randomly assigned her volunteers to treatment and control groups. After four days she found that the treatment group had 35 of the 50 volunteers with no symptoms, and the control group had 27 of 50 volunteers with no symptoms. Could she conclude that the cold medication is effective since 8 more volunteers had no symptoms in the treatment group? 
+
+Actually no. And, the reason is because of experimental variation. Consider the situation where the treatment has absolutely NO EFFECT. In other words, it does nothing. Under that assumption, the treatment and the control groups should improve at about the same time. Differences between the treatment and control group are not a function of the cold medication. They are solely a function of random chance. Similar to the studies we looked at in Unit 2, we have to figure out how much chance variation is expected before we can say whether the difference of 8 volunteers is actually an improvement. 
+
+One key difference between this type of study and those in Unit 2 is that the chance variation arises from the assignment to groups in these studies, whereas in Unit 2, the chance variation arose because of sampling from a larger population. When the chance variation is due to the assignment of participants to groups, it is referred to as *experiemental variation* rather than *sampling variation*. 
+
+### Outline and Goals of Unit 3 {-}
+
+The following schematic outlines the course readings, in-class activities, and assignments for Unit 3.
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='left'}
+knitr::include_graphics("img/unit-03-outline.png")
+```
+
+<br />
+
+In the readings, course activities, and assignments in Unit 3, you will explore the process of modeling experimental variation to be able to evaluate observed differences between groups. You will learn about the randomization test, a Monte Carlo method for modeling experimental variation, and how to carry out this test using TinkerPlots&trade;. 
+
+# Quantifying Results: p-Value {-}
+
+In addition to computing the range of likely results from the model, statisticians also typically provide a quantification of the likelihood of the observed result given the hypothesized model. This quantification is referred to as a $p$-value (the $p$ stands for probability). 
+
+To compute a $p$-value, you count the number of results that are at least as extreme as the observed result, and divide this by the total number of results. 
+
+$$
+p = \frac{\mathrm{number~of~results~more~extreme~than~observed}}{\mathrm{total~number~of~simulated~results}}
+$$
+
+This value is then reported as a decimal value. It quantifies the probability of observing a result at least as extreme as the observed result under the hypothesized model.
+
+To illustrate this, we will re-examine simulation results from the *Sleep Deprivation* study. Recall in that activity, the observed data had a difference in means of 15.9. Below is a plot of 100 differences in means simulated under the "no-effect"" model. A vertical line is shown at the observed difference of 15.9.
+
+```{r out.width="70%", echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/sleep-deprivation-simulation.png")
+```
+
+Since 15.9 is to the right of 0 (i.e., it is on the right-hand side of the plot) results that are *more extreme than the observed result* are to the right of 15.9. (If the observed result was to the left of 0, more extreme results would be those more negative than the observed result.) Here there are two simulated results out of 100 that are at least as extreme as 15.9 ($\geq 15.9$). We would report the $p$-value as 0.02.
+
+### Adjustment for Simulation Results {-}
+
+In simulation studies, we make one small adjustment to the $p$-value computation; we add 1 to both the numerator and denominator:
+
+$$
+p = \frac{\mathrm{number~of~results~more~extreme~than~observed} + 1}{\mathrm{total~number~of~simulated~results} + 1}
+$$
+
+This adjustment assures that we never get a $p$-value of 0. Consider the $p$-value if our observed result would have been 18 (instead of 15.9). There are 0 results that are at least as extreme as 18 ($\geq 18$). Without making the simulation adjustment, we would report a $p$-value of 0. This implies that seeing a result at least as extreme as 18 under the "no-effect" model is impossible. The problem is that we only ran 100 trials of the simulation. If we had run this simulation for all possible randomizations of the data, we would have seen results $\geq 18$. So, to report a $p$-value of 0 is misleading. The $p$-value we report should be,
+
+$$
+p = \frac{0 + 1}{100 + 1} = 0.0099
+$$
+
+After the adjustment, the $p$-value is still quite small, indicating that had we seen an observed result of 18, we would say that it is inconsistent with the model of "no-effect". In fact it is in the outer 0.01 (1%) of the results simulated from the hypothesized model.
+
+Going back to the $p$-value computed from the observed value of 15.9,
+
+$$
+p = \frac{2 + 1}{100 + 1} = 0.0297
+$$
+
+We can interpret the $p$-value of 0.030 as indicating that the observed difference of 15.9 is in the outer 0.03 (3%) of results simulated from the hypothesized model. It is quite unlikely that we would see a result as extreme as 15.9, or more extreme, under the hypothesized model of "no effect". 
+
+### Level of Evidence {-}
+
+Small $p$-values are used as evidence against the hypothesized model. While there are no hard-and-fast rules for gauging how strong the evidence is against the hypothesized model, the following guidelines can be used:
+
+- A $p$-value above 0.10 constitutes **little to no evidence** against the hypothesized model.
+- A $p$-value between 0.05 and 0.10 constitutes **borderline/weak evidence** against the hypothesized model.
+- A $p$-value between 0.025 and 0.05 constitutes **moderate evidence** against the hypothesized model.
+- A $p$-value between 0.001 and 0.025 constitutes **substantial/strong evidence** against the hypothesized model.
+- A $p$-value below 0.001 constitutes **overwhelming evidence** against the hypothesized model.
+
+In the *Sleep Deprivation* study, the $p$-value of 0.03 would constitute moderate evidence against the hypothesized model of "no-effect". 
+
+### Six Principles about p-Values {-}
+
+Because they are so ubiquitous in the research literature for any field, and because they are often mis-interpreted (even by PhDs, researchers, and math teachers) it is important to be aware of what a $p$-value tells you, and more importantly, what it doesn't tell you. To this end, the American Statistical Association released a [statement on $p$-values](http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108#.Vt2XIOaE2MN) in which it listed six principles:^[Yaddanapudi (2016) [published a paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5187603/) in the *Journal of Anaesthesiology, Clinical Pharmacology* in which she explains each of these six principles for practicing physician-scientists using an example of treatment efficacy for a drug.]
+
+- **Principle 1:** $P$-values can indicate how incompatible the data are with a specified statistical model.
+- **Principle 2:** $P$-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.
+- **Principle 3:** Scientific conclusions and business or policy decisions should not be based only on whether a $p$-value passes a specific threshold.
+- **Principle 4:** Proper inference requires full reporting and transparency.
+- **Principle 5:** A $p$-value, or statistical significance, does not measure the size of an effect or the importance of a result.
+- **Principle 6:** By itself, a $p$-value does not provide a good measure of evidence regarding a model or hypothesis.
+
+Principle 3 is especially poignant, as many reserachers use the criterion of 0.05 when evaluating $p$-values to indicate whether a result is statistically significant ($p \leq 0.05$) or not. In fact, this use was so pervasive and problematic, that the journal *Basic and Applied Social Psychology* [banned the use of $p$-values](http://www.nature.com/news/psychology-journal-bans-p-values-1.17001) in its published articles. It also led to many jokes about $p$-values, including this [XKCD](https://xkcd.com) comic.
+
+![](https://imgs.xkcd.com/comics/p_values.png)
+
+
+
+
+
+# Unit 4: Design and Inference {-}
+
+How studies are designed and carried out play a large role in the inferences that can be drawn. For example, randomly assigning participants to experiemental groups plays a large role in the degree to which cause-and-effect inferences can be drawn. According to [Wikipedia](https://en.wikipedia.org/wiki/Random_assignment),
+
+> Random assignment of participants helps to ensure that any differences between and within the groups are not systematic at the outset of the experiment. Thus, any differences between groups recorded at the end of the experiment can be more confidently attributed to the experimental procedures or treatment.
+
+It is for this reason that random assignment is often referred to as the "Gold Standard" of design. While random assignment is the strongest of the experimental designs for attributing cause, it is not perfect. The same Wikipedia page goes on to say,
+
+> Random assignment does not guarantee that the groups are matched or equivalent. The groups may still differ on some preexisting attribute due to chance. The use of random assignment cannot eliminate this possibility, but it greatly reduces it.
+
+### Outline and Goals of Unit 4 {-}
+
+The following schematic outlines the course readings, in-class activities, and assignments for Unit 4.
+
+<br />
+
+```{r out.width="50%", echo=FALSE, fig.align='left'}
+knitr::include_graphics("img/unit-04-outline.png")
+```
+
+<br />
+
+In the readings, course activities, and assignments in Unit 4, you will explore how random assignment "equalizes" groups, and why it sometimes is not a perfect equalizer. You will also gain more experience with consideration of study design and the role it plays in inference. Finally, you will learn what to do when a study doesn't employ random assignment.
+
+
+
+
+<!-- We will examine different parts of this definition in later chapters, but for now, let's focus on the part that refers to manipulation of factor(s). One key part of an experimental study is that the researcher is the person who manipulates factors that affect the outcome of the experiement.  -->
+
+
+ 
+
+
+<!--  These types of questions are used to address **treatment efficacy**. For example, "Is a particular curriculum effective in improving students' achievement?" or "Is having a Facebook page for a business effective in improving sales?"  -->
+
+<!-- Group comparisons are also used to address questions about **treatment magnitude**. For example, "How much lower are attendance rates for a particular population of students?" or "How much more likely is it that an iPhone user will live in the city (rather than the suburbs or the country) than an Android user?"^[This question was asked in a survey by *Hunch*, a personal recommendation service. They created an infographic that highlighted several comparisons of the average demographic characteristics between the two users.] -->
+
+<!-- ### Comparisons in the Media {-} -->
+
+<!-- The media often proffers group comparisons. Consider the infographic displayed in Figure \@ref(fig:hunch). It compares survey data from cat and dog people. The comparison between cat and dog people is primarily conveyed via text. The graphical parts of the infographic are mostly aesthetic. -->
+
+<!-- <br /> -->
+
+<!-- ```{r hunch, out.width="60%", echo=FALSE, fig.align='center', fig.cap='Hunch infographic comparing dog and cat people.'} -->
+<!-- knitr::include_graphics("img/cat-vs-dog-people.png") -->
+<!-- ``` -->
+
+<!-- <br /> -->
+
+<!-- Figure \@ref(fig:fb) shows a screenshot from a Facebook application called *Facebook Questions*. The application allows any Facebook user who has installed it to poll other Facebook users. It displays the poll results as a bar graph.^[Hovering over a particular bar on Facebook would display the frequency or count of users voting for a particular response.] -->
+
+<!-- <br /> -->
+
+<!-- ```{r fb, out.width="60%", echo=FALSE, fig.align='center', fig.cap='Poll questions and bar graphs displaying the voting results for two questions submitted using the Facebook Questions application.'} -->
+<!-- knitr::include_graphics("img/facebook-questions.png") -->
+<!-- ``` -->
+
+<!-- <br /> -->
+
+<!-- In contrast to the comparison in the *Hunch* infographic, the comparison here is conveyed through the graph rather than the text. The length of each bar provides an indication of the frequency of voters who responded to each of the poll options relative to the other options. For example, the bar labeled 'Eric' in the *True Blood* poll is roughly five times longer than the bar labeled 'Goderic'. This corresponds to the five-fold difference in the frequency of votes (3,571 votes for Goderic and 18,102 votes for Eric) between the two candidates. The bar labeled 'Bill' is roughly $^1/_2$ the length of the bar labeled 'Goderic' and about one-ninth as long as the bar labeled 'Eric', indicative of the 1,933 votes that had been cast for Bill. -->
+
+<!-- Examining the two graphical displays presented, reflect on the following questions. -->
+
+<!-- - Which of these two displays more clearly conveys the comparisons being made? Why? -->
+<!-- - How would you improve on each display? Explain. -->
+
+<!-- ### Complexity of Speech {-} -->
+
+<!-- Data scientists need to make several decisions during the course of an analysis. These decisions include questions about operationalization, summarization, and sampling, to name but a few. To illustrate some of these decisions, consider the following research question posed by the [Sunlight Foundation](https://sunlightfoundation.com/):  -->
+
+<!-- <div class="image"> -->
+<!--   <img src="img/speech-bubble.png" /> -->
+<!--   <span class="oval-thought"><center>Is the complexity of speeches given by Democrats <br /> different than that of speeches given by Republicans?</center></span> -->
+<!-- </div> -->
+
+
+
+<!-- ### Operationalization {-} -->
+
+<!-- In thinking about answering these questions, there are several decisions that need to be made by the researcher. One major decision that would have to be made is how "complexity" is to be measured. This operationalization involves defining and quantifying a fuzzy construct to help make it understandable (and study-able). In general, making a comparison between numeric properties such as three apples and five apples is much easier than making comparisons of an ill-defined characteristic such as “complexity”. In considering how to operationalize a construct, there are often many possibilities. For example, complexity of a written passage can be operationalized by using a readability index such as the Flesch&ndash;Kincaid score. Another way of operationalizing the passage is to count the number of words in the passage that appear in Kaplan's list of [The 100 Most Common SAT Words](http://www.washingtonpost.com/wp-adv/eduadv/kaplan/kart_ug_sat100.html). -->
+
+<!-- It is important to understand the advantages and limitations in the choice of an operationalization.  For example, by using the frequency of the 100 most common SAT words, it is easy to provide a quantification for each passage. It is also easy to understand what that quantification means&mdash;a passage with a score of four uses two fewer SAT words than a passage that has a score of six. This will ease interpretations during an analysis. On the other hand, this score is a rather rudimentary measure of complexity. -->
+
+<!-- In comparison to the frequency of SAT words, the Flesch&ndash;Kincaid score is a less rudimentary measure of sentence complexity defined as, -->
+
+<!-- $$ -->
+<!-- \mathrm{FK} = 0.39 \times (\mathrm{Average~words~per~sentence}) + 11.8 \times (\mathrm{Average~syllables~per~word}) - 15.59 -->
+<!-- $$ -->
+
+<!-- The Flesch&ndash;Kincaid score indicates that the text would be at the limit of comprehension for a person with the equivalent of that number of years of education.In laymen's terms, the score gives the reading grade level of the passage.^[Many famous passages have been scored using the Flesch&ndash;Kincaid measure such as the U.S. Constitution (17.8 grade level), the Declaration of Independence (15.1 grade level), the Gettysburg Address (11.2 grade level), Martin Luther King's "I Have a Dream" speech (9.4 grade level), and U2 frontman Bono's 2004 commencement speech at the University of Pennsylvania (5.9 grade level).] At its core, the Flesch&ndash;Kincaid score equates higher grade levels with longer words and longer sentences. It does not, however, indicate anything about the clarity or correctness of a passage of text. If these attributes are important in operationalizing passage complexity, other measures should be used in the quantification. Another strength of the Flesch&ndash;Kincaid score is that it has been adopted as the Department of Defense standard in determining the age-appropriateness of reading material. Because of this, the metric is one of the best known and frequently used metrics of readability. -->
+
+<!-- The choice of operationalization is subjective to the researcher and inevitably has a great deal of impact on the generalizations that the researcher can make. Does the operationalization accurately reflect the construct that the researcher wishes to say something about? Using our example question, say that after making comparisons of congressional speeches using the Flesch&ndash;Kincaid score you find that Republicanss have, in general, lower scores than Republicans. This might suggest that the complexity of Republican's congressional speeches is less than that of Democrats. Another researcher might choose a different method of operationalizing complexity and come to the opposite conclusion. What does the choice of operationalization reflect about the "truth" of the change (or non-change) of complexity in congressional speeches? In science, these types of questions are related to the [validity of the inferences](https://www.socialresearchmethods.net/kb/measval.php) that can be made. -->
+
+<!-- ### Summarization {-} -->
+
+<!-- After operationalization, it may seem that a researcher could just collect her data and answer her research questions. However, there are still a litany of choices that the researcher needs to make before she gets to this point. One of the initial questions is whether the researcher should use raw data or summary data. Raw data would be data that has not been processed or manipulated in any way (i.e., the original data). In this case, it would mean using the transcripts of the speeches given in Congress. Summary data, on the other hand, would refer to data that has been manipulated or summarized in some manner. For example, rather than obtaining a transcript of the actual speeches given, the researcher could instead use data that some other party or individual has already summarized and produced such as the average word per sentence or even the Flesch&ndash;Kincaid scores themselves. Most researchers would prefer to work from the raw data and compute these measures themselves, but in many cases the raw data is not available and only summary information is accessible.^[As an example, the Minnesota Department of Education is required to provide test results, revenue and expenditure data, and demographic information for each school and district in the state. Because of privacy laws, these data are released to the public at the school-level (e.g., summarized as school averages) rather than at the individual-level (i.e., the raw data used to compute these averages). See the [MDE website for reports and publicly available data](http://education.state.mn.us/MDE/Data/) for all Minnesota schools and districts.] -->
+
+<!-- In the research proposed, It is in fact possible for the researcher to obtain the raw data&mdash;transcripts for each of the Congressional speeches given in the last 10 years. [The Congressional Record](http://www.senate.gov/pagelayout/legislative/d_three_sections_with_teasers/congrecord.htm) is a verbatim account of the remarks made by senators and representatives while they are on the floor of the Senate and the House of Representatives. Transcripts for each speech could be collected from this, or another, website. Again, the collection of these transcripts may seem straight-forward (just download them from the website). However, just a minute or two of examining the website leads to many other questions. For example, after searching on "Amy Klobuchar", one of the Senators from Minnesota, it was revealed that the search results brought up any mention of Amy Klobuchar&mdash;not just the speeches she gave. Should we use all of these? Or just the speeches? Another decision. -->
+
+<!-- ### Sampling {-} -->
+
+<!-- It would also soon be apparent that collecting these data could be very time consuming. There were 219 search hits for "Amy Klobuchar" in the 112th Congress (2011&ndash;2012) alone. Given there are 541 members of Congress in any given year (435 voting Representatives, 6 non-voting Representatives, and 100 Senators), this is somewhere on the magnitude of 119,000 transcripts that we would need to download.^[Some of the downloading of documents and processing (e.g., counting syllables, words per sentence, etc.) can be automated using computer languages such as [Python](https://www.python.org/) or [Perl](https://www.perl.org/). This could still take several weeks to write the web scraping program to obtain the data and check the resulting output for errors.] (Not to mention that we would also have to compute the Flesch&ndash;Kincaid score for each one!). Because of this, many researchers collect only a subset of the data available. This is referred to as sampling and there are well-defined methods for choosing a sample of data to ensure that it adequately represents the entire population. -->
+
+<!-- After all of the decisions about operationalization, sampling, and data collection have been made, and the transcripts have been collected and quantified with a Flesch&ndash;Kincaid score we can start to think about analyzing the data to answer the research questions. This leads to more questions and decisions that need to be made. How will you compare the Flesch&ndash;Kincaid scores across years? Between Democrats and Republicans? Consider Figure \@ref(fig:fk) below. This figure shows the Flesch&ndash;Kincaid scores for ten speeches given by Democrats and ten speeches given by Republicans. -->
+
+<!-- <br /> -->
+
+<!-- ```{r fk, out.width="60%", echo=FALSE, fig.align='center', fig.cap='Flesch&ndash;Kincaid scores for ten speeches given by Democrats and ten speeches given by Republicans.'} -->
+<!-- knitr::include_graphics("img/fk-dem-rep.png") -->
+<!-- ``` -->
+
+<!-- <br /> -->
+
+<!-- Using the plot, reflect on how you might answer the following questions. -->
+
+<!-- - How would you compare the Flesch&ndash;Kincaid scores for the speeches given by Democrats and the speeches made by Republicans? -->
+<!-- - If you had to summarize the Flesch&ndash;Kincaid scores for the speeches given by Democrats by using a single number to quantify all ten speeches, what would this number be?  -->
+<!-- - Are you comfortable summarizing the ten scores into a single number? If not, are there other numbers you would use or add to your original quantification? -->
+<!-- - Using the same methodology, summarize the Flesch&ndash;Kincaid scores for the speeches given by Republicans. -->
+<!-- - Compare the two quantifications you have just made. Summarize the differences between the Democrats and Republicans based on the two quantifications into a single number (i.e., how much bigger/smaller is the Democrats score than the Republicans?) -->
+<!-- - What does this comparison suggest about the original research question as to whether the complexity of speeches given by Democrats are different than that of speeches given by Republicans? -->
+
+<!-- ### Statistical Inference {-} -->
+
+<!-- It may seem that after all of this work we finally have an answer to our research questions, but it turns out that we may not. This is because we have introduced some error through the process of sampling (the data constitutes only 10 speeches from each party). Let's say that we had sampled 200 speeches (100 speeches from each party). Further consider that we found the average grade-level for the 100 speeches given by Democrats was 11.5 and the average grade-level for speeches given by Republicans was 10.6. This suggests that Congressional speeches for Republicans are almost an entire grade-level lower than those for Democrats. -->
+
+<!-- But, what if we had gotten different speeches in our sample? There are many different samples of 100 speeches from the 541 members of Congess. Each of these different samples might give a slightly different value for the average grade-levels for Democrats and Republicans, which in turn affects our inferences about which party is giving more complex speeches!  -->
+
+<!-- It is well-known that different samples give different results. This was one of the big take-aways from Unit 1. It is the whole basis of statistical inference: **How different do we expect the results to be just because of sampling variation?** The ideas you learned in Unit 1 are also directly applicable when studying group differences. In this unit you will learn how to use Monte Carlo simulation to study and quantify the sampling variation (uncertainty) for group differences. -->
+
+<!-- Although quantifying uncertainty is a large part of statistical inference, it is not the only thing involved in drawing conclusions from sample data. Drawing conclusions from data also implies thinking broadly about the **scope of those inferences**. For example, does a difference in complexity only refer to a comparison of speeches given in the year you obtained data from? Or does it apply more broadly to the complexity of all Congressional speeches ever given? Or, can we use these data to suggest that the complexity of speeches by Democrats and Republicans outside of Congress differ? -->
+
+<!-- Another part of drawing conclusions is in considering the 'why'. Why is the complexity of Congressional speeches different for the two partys? Is this an indictment of Congress? the American public? or neither? Ascribing meaning to why differences occur is a part of the much broader reasons for carrying out research. Unfortunately, the attribution of the reasons or causes of a particular difference are very difficult under most circumstances.   -->
+
+
