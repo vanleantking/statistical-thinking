@@ -1,12 +1,27 @@
 /* ============================================================================================================================
 == OVAL THOUGHT BUBBLE (more CSS3)
-** ============================================================================================================================
+** ============================================================================================================================*/
 
-.oval-thought {
-  background-image: url('img/speechBubble.png');
-  width:600px;
-  height:50px;
-}*/
+body, p { font-family: 'Alegreya', serif; font-size: 1.2em; }
+body, ul, li { font-family: 'Alegreya', serif; font-size: 1.2em; }
+body, a { color: #ff2d21; }
+
+body, nav, ul, li { font-family: 'Alegreya', serif; font-size: 1em; }
+body, nav { font-family: 'Alegreya', serif; font-size: 1em; }
+
+h1 { font-family: 'Playfair Display', serif; }
+h2 { font-family: 'Playfair Display', serif; }
+h3 { font-family: 'Playfair Display', serif; }
+h4 { font-family: 'Playfair Display', serif; }
+h5 { font-family: 'Playfair Display', serif; }
+h6 { font-family: 'Playfair Display', serif; }
+
+.book-summary{
+  font-family: 'Alegreya', serif; font-size: 1.4em;
+}
+
+
+
 
 
 .image {
@@ -17,9 +32,33 @@
 
 .oval-thought {
    position: absolute;
-   top: 0px;
+   top: 0;
    margin-top: 10px;
    margin-bottom:10px;
    width: 100%;
    padding: 10px;
+}
+
+.excerpt{
+  font-family: 'News Cycle', sans-serif;
+}
+
+
+.msg_list {
+  margin: 0;
+  padding: 0;
+}
+
+.msg_head {
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  background-color:#FFCCCC;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.msg_body {
+  padding: 5px 10px 15px;
+  background-color: #F4F4F8;
 }
