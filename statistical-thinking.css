@@ -1,10 +1,12 @@
-/* ============================================================================================================================
-== OVAL THOUGHT BUBBLE (more CSS3)
-** ============================================================================================================================*/
+/* ================================
+== Body and navigation
+==================================*/
+
+a { color: #ff2d21; }
 
 body, p { font-family: 'Alegreya', serif; font-size: 1.2em; }
 body, ul, li { font-family: 'Alegreya', serif; font-size: 1.2em; }
-body, a { color: #ff2d21; }
+body, table { font-family: 'Alegreya', serif; font-size: 1.2em; }
 
 body, nav, ul, li { font-family: 'Alegreya', serif; font-size: 1em; }
 body, nav { font-family: 'Alegreya', serif; font-size: 1em; }
@@ -22,7 +24,9 @@ h6 { font-family: 'Playfair Display', serif; }
 
 
 
-
+/* ================================
+== OVAL THOUGHT BUBBLE (more CSS3)
+==================================*/
 
 .image {
    position: relative;
@@ -39,10 +43,24 @@ h6 { font-family: 'Playfair Display', serif; }
    padding: 10px;
 }
 
+
+/* ================================
+== Study excerpts
+==================================*/
+
 .excerpt{
   font-family: 'News Cycle', sans-serif;
+  border: 1px;
+  border-style: solid;
+  width: 70%;
+  padding: 5px;
+  margin: 25px auto;
 }
 
+
+/* ================================
+== Show/hide button
+==================================*/
 
 .msg_list {
   margin: 0;

@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="introduction.html">
-<link rel="next" href="randomness.html">
+<link rel="next" href="generating-data-from-models.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -45,6 +45,23 @@
 
 
 
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+  //hide the all of the element with class msg_body
+  $(".msg_body").hide();
+  //toggle the componenet with class msg_body
+  $(".msg_head").click(function()
+  {
+    $(this).next(".msg_body").slideToggle(600);
+  });
+});
+</script>
+
+
+<link href="https://fonts.googleapis.com/css?family=Alegreya|Cormorant+SC|EB+Garamond|News+Cycle|Playfair+Display" rel="stylesheet">
 
 
 
@@ -63,6 +80,7 @@
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Statistical Thinking: A Simulation Approach to Modeling Uncertainty</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#colophone"><i class="fa fa-check"></i>Colophone</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#course-material"><i class="fa fa-check"></i>Course Material</a></li>
@@ -72,17 +90,17 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="modeling-simulation.html"><a href="modeling-simulation.html"><i class="fa fa-check"></i>Modeling &amp; Simulation</a><ul>
 <li class="chapter" data-level="" data-path="modeling-simulation.html"><a href="modeling-simulation.html#outline-and-goals-of-unit-1"><i class="fa fa-check"></i>Outline and Goals of Unit 1</a></li>
+<li class="chapter" data-level="" data-path="modeling-simulation.html"><a href="modeling-simulation.html#randomness"><i class="fa fa-check"></i>Randomness</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="randomness.html"><a href="randomness.html"><i class="fa fa-check"></i>Randomness</a></li>
 <li class="chapter" data-level="" data-path="generating-data-from-models.html"><a href="generating-data-from-models.html"><i class="fa fa-check"></i>Generating Data from Models</a></li>
 <li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html"><i class="fa fa-check"></i>Monte Carlo Simulation</a><ul>
-<li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html#example-of-a-simulation-study"><i class="fa fa-check"></i>Example of a Simulation Study</a></li>
-<li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html#simulation-assumptions"><i class="fa fa-check"></i>Simulation Assumptions</a></li>
-<li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html#simulation-in-practice"><i class="fa fa-check"></i>Simulation in Practice</a></li>
+<li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html#example-of-a-monte-carlo-simulation-study"><i class="fa fa-check"></i>Example of a Monte Carlo Simulation Study</a></li>
+<li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html#monte-carlo-simulation-assumptions"><i class="fa fa-check"></i>Monte Carlo Simulation Assumptions</a></li>
+<li class="chapter" data-level="" data-path="monte-carlo-simulation.html"><a href="monte-carlo-simulation.html#monte-carlo-simulation-in-practice"><i class="fa fa-check"></i>Monte Carlo Simulation in Practice</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="hypothesis-evaluation.html"><a href="hypothesis-evaluation.html"><i class="fa fa-check"></i>Hypothesis Evaluation</a><ul>
-<li class="chapter" data-level="" data-path="hypothesis-evaluation.html"><a href="hypothesis-evaluation.html#simulation-process-for-evaluating-hypotheses"><i class="fa fa-check"></i>Simulation Process for Evaluating Hypotheses</a></li>
-<li class="chapter" data-level="" data-path="hypothesis-evaluation.html"><a href="hypothesis-evaluation.html#outline-and-goals-of-unit-2"><i class="fa fa-check"></i>Outline and Goals of Unit 2</a></li>
+<li class="chapter" data-level="" data-path="modeling-sampling-variation.html"><a href="modeling-sampling-variation.html"><i class="fa fa-check"></i>Modeling Sampling Variation</a><ul>
+<li class="chapter" data-level="" data-path="modeling-sampling-variation.html"><a href="modeling-sampling-variation.html#simulation-process-for-evaluating-hypotheses"><i class="fa fa-check"></i>Simulation Process for Evaluating Hypotheses</a></li>
+<li class="chapter" data-level="" data-path="modeling-sampling-variation.html"><a href="modeling-sampling-variation.html#outline-and-goals-of-unit-2"><i class="fa fa-check"></i>Outline and Goals of Unit 2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="describing-distributions.html"><a href="describing-distributions.html"><i class="fa fa-check"></i>Describing Distributions</a><ul>
 <li class="chapter" data-level="" data-path="describing-distributions.html"><a href="describing-distributions.html#shape"><i class="fa fa-check"></i>Shape</a></li>
@@ -90,12 +108,37 @@
 <li class="chapter" data-level="" data-path="describing-distributions.html"><a href="describing-distributions.html#variation"><i class="fa fa-check"></i>Variation</a></li>
 <li class="chapter" data-level="" data-path="describing-distributions.html"><a href="describing-distributions.html#putting-it-all-together"><i class="fa fa-check"></i>Putting It All Together</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="comparing-groups.html"><a href="comparing-groups.html"><i class="fa fa-check"></i>Comparing Groups</a><ul>
-<li class="chapter" data-level="" data-path="comparing-groups.html"><a href="comparing-groups.html#experimental-variation"><i class="fa fa-check"></i>Experimental Variation</a></li>
-<li class="chapter" data-level="" data-path="comparing-groups.html"><a href="comparing-groups.html#outline-and-goals-of-unit-3"><i class="fa fa-check"></i>Outline and Goals of Unit 3</a></li>
+<li class="chapter" data-level="" data-path="experimental-variation-and-the-randomization-test.html"><a href="experimental-variation-and-the-randomization-test.html"><i class="fa fa-check"></i>Experimental Variation and the Randomization Test</a><ul>
+<li class="chapter" data-level="" data-path="experimental-variation-and-the-randomization-test.html"><a href="experimental-variation-and-the-randomization-test.html#experimental-variation"><i class="fa fa-check"></i>Experimental Variation</a></li>
+<li class="chapter" data-level="" data-path="experimental-variation-and-the-randomization-test.html"><a href="experimental-variation-and-the-randomization-test.html#outline-and-goals-of-unit-3"><i class="fa fa-check"></i>Outline and Goals of Unit 3</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="design-and-inference.html"><a href="design-and-inference.html"><i class="fa fa-check"></i>Design and Inference</a><ul>
-<li class="chapter" data-level="" data-path="design-and-inference.html"><a href="design-and-inference.html#outline-and-goals-of-unit-4"><i class="fa fa-check"></i>Outline and Goals of Unit 4</a></li>
+<li class="chapter" data-level="" data-path="quantifying-results-p-value.html"><a href="quantifying-results-p-value.html"><i class="fa fa-check"></i>Quantifying Results: p-Value</a><ul>
+<li class="chapter" data-level="" data-path="quantifying-results-p-value.html"><a href="quantifying-results-p-value.html#adjustment-for-simulation-results"><i class="fa fa-check"></i>Adjustment for Simulation Results</a></li>
+<li class="chapter" data-level="" data-path="quantifying-results-p-value.html"><a href="quantifying-results-p-value.html#level-of-evidence"><i class="fa fa-check"></i>Level of Evidence</a></li>
+<li class="chapter" data-level="" data-path="quantifying-results-p-value.html"><a href="quantifying-results-p-value.html#six-principles-about-p-values"><i class="fa fa-check"></i>Six Principles about p-Values</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="internal-validity-evidence-and-random-assignment.html"><a href="internal-validity-evidence-and-random-assignment.html"><i class="fa fa-check"></i>Internal Validity Evidence and Random Assignment</a></li>
+<li class="chapter" data-level="" data-path="sampling-variation-and-the-bootstrap-test.html"><a href="sampling-variation-and-the-bootstrap-test.html"><i class="fa fa-check"></i>Sampling Variation and the Bootstrap Test</a><ul>
+<li class="chapter" data-level="" data-path="sampling-variation-and-the-bootstrap-test.html"><a href="sampling-variation-and-the-bootstrap-test.html#sampling-variation"><i class="fa fa-check"></i>Sampling Variation</a></li>
+<li class="chapter" data-level="" data-path="sampling-variation-and-the-bootstrap-test.html"><a href="sampling-variation-and-the-bootstrap-test.html#bootstrapping"><i class="fa fa-check"></i>Bootstrapping</a></li>
+<li class="chapter" data-level="" data-path="sampling-variation-and-the-bootstrap-test.html"><a href="sampling-variation-and-the-bootstrap-test.html#outline-and-goals-of-unit-4"><i class="fa fa-check"></i>Outline and Goals of Unit 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="external-validity-evidence-and-random-sampling.html"><a href="external-validity-evidence-and-random-sampling.html"><i class="fa fa-check"></i>External Validity Evidence and Random Sampling</a><ul>
+<li class="chapter" data-level="" data-path="external-validity-evidence-and-random-sampling.html"><a href="external-validity-evidence-and-random-sampling.html#statistical-bias"><i class="fa fa-check"></i>Statistical Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="validity-evidence-and-inferences.html"><a href="validity-evidence-and-inferences.html"><i class="fa fa-check"></i>Validity Evidence and Inferences</a><ul>
+<li class="chapter" data-level="" data-path="validity-evidence-and-inferences.html"><a href="validity-evidence-and-inferences.html#studies-of-peanut-allergies"><i class="fa fa-check"></i>Studies of Peanut Allergies</a></li>
+<li class="chapter" data-level="" data-path="validity-evidence-and-inferences.html"><a href="validity-evidence-and-inferences.html#study-design-1"><i class="fa fa-check"></i>Study Design #1</a></li>
+<li class="chapter" data-level="" data-path="validity-evidence-and-inferences.html"><a href="validity-evidence-and-inferences.html#study-design-2"><i class="fa fa-check"></i>Study Design #2</a></li>
+<li class="chapter" data-level="" data-path="validity-evidence-and-inferences.html"><a href="validity-evidence-and-inferences.html#study-design-3"><i class="fa fa-check"></i>Study Design #3</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="observational-studies-and-the-bootstrap-test.html"><a href="observational-studies-and-the-bootstrap-test.html"><i class="fa fa-check"></i>Observational Studies and the Bootstrap Test</a><ul>
+<li class="chapter" data-level="" data-path="observational-studies-and-the-bootstrap-test.html"><a href="observational-studies-and-the-bootstrap-test.html#analyzing-data-from-observational-studies"><i class="fa fa-check"></i>Analyzing Data from Observational Studies</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="statistical-estimation.html"><a href="statistical-estimation.html"><i class="fa fa-check"></i>Statistical Estimation</a><ul>
+<li class="chapter" data-level="" data-path="statistical-estimation.html"><a href="statistical-estimation.html#quantifying-uncertainty-interval-estimates"><i class="fa fa-check"></i>Quantifying Uncertainty: Interval Estimates</a></li>
+<li class="chapter" data-level="0.0.1" data-path="statistical-estimation.html"><a href="statistical-estimation.html#quantification-of-uncertainty-margin-of-error"><i class="fa fa-check"></i><b>0.0.1</b> Quantification of Uncertainty: Margin of Error</a></li>
+<li class="chapter" data-level="" data-path="statistical-estimation.html"><a href="statistical-estimation.html#outline-and-goals-of-unit-5"><i class="fa fa-check"></i>Outline and Goals of Unit 5</a></li>
 </ul></li>
 </ul>
 
@@ -119,7 +162,7 @@
 <blockquote>
 <p>There is mounting evidence that the “model-building era”&quot; that dominated the theoretical activities of the sciences for a long time is about to be succeeded or at least lastingly supplemented by the “simulation era”.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
-<p>Modeling is one of the most important subjects you may ever learn. It is used in microbiology, macroeconomics, urban studies, sociology, psychology, public health, computer science, and of course, statistics. In fact, modeling is a method that is used in almost every discipline. Many think that it is an important skill to learn because it is so pervasive. While this is true, even more important is how closely the skills of modeling tie to the more general skills of problem solving. Starfield, Smith, and Bleloch (1994) summed this sentiment up nicely when they wrote, “learning to model is bound up with learning to solve problems and to think imaginatively and purposefully” (p. x).<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<p>Modeling is one of the most important topics you may ever learn. It is used in microbiology, macroeconomics, urban studies, sociology, psychology, public health, computer science, and of course, statistics. In fact, modeling is a method that is used in almost every discipline. Many think that it is an important skill to learn because it is so pervasive. While this is true, even more important is how closely the skills of modeling tie to the more general skills of problem solving. Starfield, Smith, and Bleloch (1994) summed this sentiment up nicely when they wrote, “learning to model is bound up with learning to solve problems and to think imaginatively and purposefully” (p. x).<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
 <p>A model is a simplified representation of a system that can be used to promote an understanding of a more complex system. For example, meteorologists use computers to build models of the climate to understand and predict the weather. The computer model includes behaviors or properties which correspond, in some way, to the particular real-world system of climate. The computer models, however, do not include every possible detail about climate. All models leave things out and get some things—many things—wrong. This is because all models are simplifications of reality. Since all models are simplifications of reality there is always a trade-off as to what level of detail is included in the model. If too little detail is included in the model one runs the risk of missing relevant interactions and the resultant model does not promote understanding. If too much detail is included in the model, the model may become overly complicated and actually preclude the development of understanding.</p>
 <p>Models have many purposes, but are primarily used to better understand phenomena in the real-world. Common uses of models are for description, exploration, prediction, and classification. For example, Google builds models to understand and predict peoples’ internet searching tendencies. These models are then used to help Google carry out more efficient and better searches of information. As another example, Netflix builds models to understand the characteristics of movies that their customers have rated highly so that they can then recommend other movies that the person may enjoy. Amazon and Apple iTunes both use models in similar manners.</p>
 <div id="outline-and-goals-of-unit-1" class="section level3 unnumbered">
@@ -131,6 +174,16 @@
 <p>In this unit, you will begin by exploring ideas of randomness. Randomness permeates, and is, in fact, fundamental to statistics. Then, you will learn how to use TinkerPlots™ to model several random processes and generate outcomes from those models. By generating data from different models, you will gain experience in considering the variation in outcomes that is produced by these random processes. This consideration will help you understand and overcome many misleading human intuitions about randomness.</p>
 <p>You will also be introduced to the Monte Carlo simulation process and learn how to carry out a Monte Carlo simulation using TinkerPlots™. This process allows you to quickly generate multiple data sets from a model in order to carry out hypothetical experiments. For example, we could ask the question: How likely is it to rain three out of the five days on my vacation given a particular forecast? By modeling the forecast and repeatedly generating data for the five days of vacation, we can then answer this question.</p>
 <p>As you progress through the unit, remember that the modeling process is a creative process that can often be very challenging. At times, this might lead to frustration as you are learning and practicing some of the material. But, as Mosteller et al. (1973) remind us, it is also a profitable experience since, “modeling is not only a technique of statistics…it is a method of study which can be applied in many other fields as well” (p. xii).<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+</div>
+<div id="randomness" class="section level3 unnumbered">
+<h3>Randomness</h3>
+<p>One critical component of simulation is the random process used to generate data. To help you begin to understand randomness, watch the <a href="https://www.youtube.com/v/H2lJLXS3AYM">Random Sequences: Human vs. Coin</a> YouTube video:</p>
+<p><br /></p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/v/H2lJLXS3AYM" frameborder="0" allowfullscreen>
+</iframe>
+</center>
+
 </div>
 </div>
 <div class="footnotes">
@@ -147,7 +200,7 @@
         </div>
       </div>
 <a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="randomness.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="generating-data-from-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -181,7 +234,7 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
