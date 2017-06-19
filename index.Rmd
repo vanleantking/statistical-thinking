@@ -3,7 +3,7 @@ title: ""
 author: ""
 site: bookdown::bookdown_site
 documentclass: book
-rmd_files: ["index.Rmd", "01-introductiont.Rmd", "02-modeling-and-simulation.Rmd", "04-data-generation.Rmd", "05-monte-carlo-simulation.Rmd", "06-modeling-sampling-variation.Rmd", "07-describing-distributions.Rmd", "08-experimental-variation.Rmd", "09-p-value.Rmd","10-internal-validity-evidence.Rmd",  "11-sampling-variation.Rmd", "12-external-validity-evidence.Rmd", "13-validity-evidence-and-inferences.Rmd", "14-observational-studies.Rmd", "15-statistical-estimation.Rmd"]
+rmd_files: ["index.Rmd", "01-introductiont.Rmd", "02-modeling-and-simulation.Rmd", "03-data-generation.Rmd", "04-monte-carlo-simulation.Rmd", "05-modeling-sampling-variation.Rmd", "06-describing-distributions.Rmd", "07-experimental-variation.Rmd", "08-p-value.Rmd","09-internal-validity-evidence.Rmd",  "10-sampling-variation.Rmd", "11-external-validity-evidence.Rmd", "12-validity-evidence-and-inferences.Rmd", "13-observational-studies.Rmd", "14-statistical-estimation.Rmd", "15-uncertainty-and-bias.Rmd"]
 output: 
   bookdown::gitbook:
     split_by: section
@@ -26,7 +26,7 @@ knitr::include_graphics("img/catalst-textbook-cover-v4.png")
 
 <br />
 
-This website is intended to serve as an organizational hub for the most current version of the CATALST Project's *Statistical Thinking: A Simulation Approach to Modeling Uncertainty*. Here you will be able to access materials such as readings, data sets, and the lab manual. It also includes helpful links and resources for each of the course topics.
+This website is intended to serve as an organizational hub for the most current version of the CATALST Project's *Statistical Thinking: A Simulation Approach to Modeling Uncertainty*. Here you will be able to access materials such as readings, data sets, and the lab manual. The website also includes helpful links and resources for each of the course topics.
 
 <br />
 
@@ -38,7 +38,7 @@ PUBLISHED BY CATALYST PRESS
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
 
-This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You are free to share, remix, and to make commercial use of the work under the condition that you provide proper attribution. To reference this work, use:
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You are free to share, remix, and make commercial use of the work under the condition that you provide proper attribution. To reference this work, use:
 
 - Zieffler, A., & Catalysts for Change. (2017). *Statistical Thinking: A simulation approach to uncertainty* (4th ed.). Minneapolis, MN: Catalyst Press. [http://zief0002.github.io/statistical-thinking/](http://zief0002.github.io/statistical-thinking/)
 
@@ -47,7 +47,7 @@ The work to create the material appearing in the book was made possible by the N
 <br />
 
 
-### Colophone {-}
+### Colophon {-}
 
 There are two [Google Fonts](https://fonts.google.com/) used on the website. The headings use [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) and the display text is [Alegreya](https://fonts.google.com/specimen/Alegreya).
 

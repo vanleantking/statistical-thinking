@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="experimental-variation-and-the-randomization-test.html">
-<link rel="next" href="internal-validity-evidence-and-random-assignment.html">
+<link rel="prev" href="observational-studies-and-the-bootstrap-test.html">
+<link rel="next" href="uncertainty-and-bias.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -158,68 +158,78 @@ $(document).ready(function()
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="quantifying-results-p-value" class="section level1 unnumbered">
-<h1>Quantifying Results: p-Value</h1>
-<p>In addition to computing the range of likely results from the model, statisticians also typically provide a quantification of the likelihood of the observed result given the hypothesized model. This quantification is referred to as a <span class="math inline">\(p\)</span>-value (the <span class="math inline">\(p\)</span> stands for probability).</p>
-<p>To compute a <span class="math inline">\(p\)</span>-value, you count the number of results that are at least as extreme as the observed result, and divide this by the total number of results.</p>
-<p><span class="math display">\[
-p = \frac{\mathrm{number~of~results~more~extreme~than~observed}}{\mathrm{total~number~of~simulated~results}}
-\]</span></p>
-<p>This value is then reported as a decimal value. It quantifies the probability of observing a result at least as extreme as the observed result under the hypothesized model.</p>
-<p>To illustrate this, we will re-examine simulation results from the <em>Sleep Deprivation</em> study. Recall in that activity, the observed data had a difference in means of 15.9. Below is a plot of 100 differences in means simulated under the “no-effect”&quot; model. A vertical line is shown at the observed difference of 15.9.</p>
-<p><img src="img/sleep-deprivation-simulation.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>Since 15.9 is to the right of 0 (i.e., it is on the right-hand side of the plot) results that are <em>more extreme than the observed result</em> are to the right of 15.9. (If the observed result was to the left of 0, more extreme results would be those more negative than the observed result.) Here there are two simulated results out of 100 that are at least as extreme as 15.9 (<span class="math inline">\(\geq 15.9\)</span>). We would report the <span class="math inline">\(p\)</span>-value as 0.02.</p>
-<div id="adjustment-for-simulation-results" class="section level3 unnumbered">
-<h3>Adjustment for Simulation Results</h3>
-<p>In simulation studies, we make one small adjustment to the <span class="math inline">\(p\)</span>-value computation; we add 1 to both the numerator and denominator:</p>
-<p><span class="math display">\[
-p = \frac{\mathrm{number~of~results~more~extreme~than~observed} + 1}{\mathrm{total~number~of~simulated~results} + 1}
-\]</span></p>
-<p>This adjustment assures that we never get a <span class="math inline">\(p\)</span>-value of 0. Consider the <span class="math inline">\(p\)</span>-value if our observed result would have been 18 (instead of 15.9). There are 0 results that are at least as extreme as 18 (<span class="math inline">\(\geq 18\)</span>). Without making the simulation adjustment, we would report a <span class="math inline">\(p\)</span>-value of 0. This implies that seeing a result at least as extreme as 18 under the “no-effect” model is impossible. The problem is that we only ran 100 trials of the simulation. If we had run this simulation for all possible randomizations of the data, we would have seen results <span class="math inline">\(\geq 18\)</span>. So, to report a <span class="math inline">\(p\)</span>-value of 0 is misleading. The <span class="math inline">\(p\)</span>-value we report should be,</p>
-<p><span class="math display">\[
-p = \frac{0 + 1}{100 + 1} = 0.0099
-\]</span></p>
-<p>After the adjustment, the <span class="math inline">\(p\)</span>-value is still quite small, indicating that had we seen an observed result of 18, we would say that it is inconsistent with the model of “no-effect”. In fact it is in the outer 0.01 (1%) of the results simulated from the hypothesized model.</p>
-<p>Going back to the <span class="math inline">\(p\)</span>-value computed from the observed value of 15.9,</p>
-<p><span class="math display">\[
-p = \frac{2 + 1}{100 + 1} = 0.0297
-\]</span></p>
-<p>We can interpret the <span class="math inline">\(p\)</span>-value of 0.030 as indicating that the observed difference of 15.9 is in the outer 0.03 (3%) of results simulated from the hypothesized model. It is quite unlikely that we would see a result as extreme as 15.9, or more extreme, under the hypothesized model of “no effect”.</p>
+<div id="estimating-uncertainty" class="section level1 unnumbered">
+<h1>Estimating Uncertainty</h1>
+<blockquote>
+<p>Far better an approximate answer to the right question;than an exact answer to the wrong question.<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a></p>
+</blockquote>
+<p>Aside from hypothesis testing, one of the most common uses of statistical inference is the estimation of unknown parameters using sample data. Polling is one example where statistical estimation is used. For example, <a href="http://www.gallup.com/">Gallup</a> and the <a href="http://www.pewresearch.org/">Pew Research Center</a> are organizations that carry out public opinion research and then use statistical estimation to provide snapshots of public attitudes and opinions on topics from politics and the economy, to social awareness and health and well-being. The results of their polls are seen on a daily basis in almost every newspaper, news blog and website the world over.</p>
+<p>Statistical estimation is used by more than pollsters. Biologists, social scientists, and medical researchers use statistical estimation to quantify population characteristics. For example, the Minnesota Department of Natural Resources estimates the size of animal, bird, and fish populations yearly. These estimates are used to help set hunting and fishing regulations, as well as to allocate resources.<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a></p>
+<div id="quantifying-uncertainty-interval-estimates" class="section level3 unnumbered">
+<h3>Quantifying Uncertainty: Interval Estimates</h3>
+<p>When statisticians report sample estimates, they typically provide the value of the estimate along with the quantification of uncertainty in this estimate. This uncertainty measurement gives us an indication of the “precision” of the estimate. For example, consider again the example of the person who lost his keys. In those pictures, recall, the places where he searched for his keys (the red x’s) represents that sample data.</p>
+<p><br /></p>
+<div class="figure" style="text-align: center"><span id="fig:uncertainty-keys"></span>
+<img src="img/uncertainty-keys.png" alt="This figure is a metaphor for statistical uncertainty." width="70%" />
+<p class="caption">
+Figure 7: This figure is a metaphor for statistical uncertainty.
+</p>
 </div>
-<div id="level-of-evidence" class="section level3 unnumbered">
-<h3>Level of Evidence</h3>
-<p>Small <span class="math inline">\(p\)</span>-values are used as evidence against the hypothesized model. While there are no hard-and-fast rules for gauging how strong the evidence is against the hypothesized model, the following guidelines can be used:</p>
-<ul>
-<li>A <span class="math inline">\(p\)</span>-value above 0.10 constitutes <strong>little to no evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value between 0.05 and 0.10 constitutes <strong>borderline/weak evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value between 0.025 and 0.05 constitutes <strong>moderate evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value between 0.001 and 0.025 constitutes <strong>substantial/strong evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value below 0.001 constitutes <strong>overwhelming evidence</strong> against the hypothesized model.</li>
-</ul>
-<p>In the <em>Sleep Deprivation</em> study, the <span class="math inline">\(p\)</span>-value of 0.03 would constitute moderate evidence against the hypothesized model of “no-effect”.</p>
+<p><br /></p>
+<p>One estimate that can be made from that data is the “mean” location.<a href="#fn19" class="footnoteRef" id="fnref19"><sup>19</sup></a> This location is marked with a big blue dot. This estmate is the one-location best guess about where the actual keys (the population parameter) are located. The yellow area represents the uncertainty; other places where the keys might be aside from the on-location best guess. Interpreting this uncertainty gives him a range of locations where the actual keys might be; the interval estimate.</p>
 </div>
-<div id="six-principles-about-p-values" class="section level3 unnumbered">
-<h3>Six Principles about p-Values</h3>
-<p>Because they are so ubiquitous in the research literature for any field, and because they are often mis-interpreted (even by PhDs, researchers, and math teachers) it is important to be aware of what a <span class="math inline">\(p\)</span>-value tells you, and more importantly, what it doesn’t tell you. To this end, the American Statistical Association released a <a href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108#.Vt2XIOaE2MN">statement on <span class="math inline">\(p\)</span>-values</a> in which it listed six principles:<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a></p>
+<div id="quantification-of-uncertainty-margin-of-error" class="section level3 unnumbered">
+<h3>Quantification of Uncertainty: Margin of Error</h3>
+<p>In the popular media, interval estimates are often reported using the sample estimate (statistic) and a margin of error. For example, consider the following poll results reported in the <a href="http://query.nytimes.com/gst/fullpage.html?res=980DE0DF1530F933A05755C0A9679D8B63">New York Times on June 30, 2011</a>:</p>
+<blockquote>
+<p>As the housing market slumped over the last few years with a speed and magnitude not seen since the Great Depression, aspects of homeownership have been debated as never before. There are tough questions about the role the government should take…includ[ing] how much of a down payment lenders should demand. Whether buyers need to come up with a 20 percent down payment—the standard for decades, but beyond the reach of many families now—is hotly debated. Fifty-eight percent of respondents say lenders should require this, while 36 percent say they should not. The nationwide telephone poll was conducted June 24–28 with 979 adults and has a margin of sampling error of plus or minus three percentage points for all adults.</p>
+</blockquote>
+<p>In this article, the percentage of all adults in the United States who believe that lenders should require a 20% down payment on a house was reported as:</p>
 <ul>
-<li><strong>Principle 1:</strong> <span class="math inline">\(P\)</span>-values can indicate how incompatible the data are with a specified statistical model.</li>
-<li><strong>Principle 2:</strong> <span class="math inline">\(P\)</span>-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.</li>
-<li><strong>Principle 3:</strong> Scientific conclusions and business or policy decisions should not be based only on whether a <span class="math inline">\(p\)</span>-value passes a specific threshold.</li>
-<li><strong>Principle 4:</strong> Proper inference requires full reporting and transparency.</li>
-<li><strong>Principle 5:</strong> A <span class="math inline">\(p\)</span>-value, or statistical significance, does not measure the size of an effect or the importance of a result.</li>
-<li><strong>Principle 6:</strong> By itself, a <span class="math inline">\(p\)</span>-value does not provide a good measure of evidence regarding a model or hypothesis.</li>
+<li><strong>Sample estimate:</strong> 58%</li>
+<li><strong>Margin of error:</strong> 3%</li>
 </ul>
-<p>Principle 3 is especially poignant, as many reserachers use the criterion of 0.05 when evaluating <span class="math inline">\(p\)</span>-values to indicate whether a result is statistically significant (<span class="math inline">\(p \leq 0.05\)</span>) or not. In fact, this use was so pervasive and problematic, that the journal <em>Basic and Applied Social Psychology</em> <a href="http://www.nature.com/news/psychology-journal-bans-p-values-1.17001">banned the use of <span class="math inline">\(p\)</span>-values</a> in its published articles. It also led to many jokes about <span class="math inline">\(p\)</span>-values, including this <a href="https://xkcd.com">XKCD</a> comic.</p>
-<center>
-<img src="https://imgs.xkcd.com/comics/p_values.png" />
-</center>
+<p>Although the interval estimate isn’t directly reported, it can be computed using the sample estimate and margin of error as,</p>
+<p><span class="math display">\[
+\mathrm{Sample~Estimate} \pm \mathrm{Margin~of~Error}
+\]</span></p>
+<p>In this example,</p>
+<p><span class="math display">\[
+58\% \pm 3\% = \left[55\%,~61\%\right]
+\]</span></p>
+<p>Statisticians refer to this as an <strong>interval estimate</strong> because it gives an interval of plausible values for the percentage of all adults in the United States who believe that lenders should require a 20% down payment on a house. Based on the observed data, the best estimate for the “truth” (the population parameter) is that 58% of all adults in the United States believe that lenders should require a 20% down payment on a house. However, because of the uncertainty associated with random sampling, it may be that anywhere between 55% and 61% of all adults in the United States believe that lenders should require a 20% down payment on a house.</p>
+<p>In the interpretation above, we associated the amount of uncertainty with variation because of random sampling. It turns out that the margin of error is directly related to the quantification of sampling error. In fact,</p>
+<p><span class="math display">\[
+\mathrm{Margin~of~Error} = 2 \times \mathrm{Standard~Error}
+\]</span></p>
+<p>The standard error is just a fancy name for the standard deviation when the distribution is composed of statistics (e.g., means, percentages). In other words, the standard deviation of a set of simulated results. That means, in practice, we can use bootstrapping to model the sampling variation, obtain the standard deviation of the bootstrapped results, and use that along with the estimate from the observed data to obtain an interval estimate.</p>
+<p>As you interpret interval estimates, there are a couple things to keep in mind.</p>
+<ul>
+<li>The interval estimate is being used to estimate the population parameter.</li>
+<li>The interval estimate gives a range of plausible values for the population parameter.</li>
+<li>Each value in the range are equally believable. (Values in the middle of the range are NOT more believable than values at the ends of the range.)</li>
+</ul>
+<p>To further help you understand ideas related to the standard error and the margin of error, we would like you to read Chapter 10 (<em>What is a Margin of Error?</em>) from a short pamphlet put together by the American Statistical Association’s Section on Survey Research.</p>
+<ul>
+<li>It is available at <a href="http://www.amstat.org/sections/srms/pamphlet.pdf" class="uri">http://www.amstat.org/sections/srms/pamphlet.pdf</a>.</li>
+</ul>
+</div>
+<div id="outline-and-goals-of-unit-5" class="section level3 unnumbered">
+<h3>Outline and Goals of Unit 5</h3>
+<p>The following schematic outlines the course readings, in-class activities, and assignments for Unit 5.</p>
+<p><br /></p>
+<p><img src="img/unit-05-outline.png" width="50%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br /></p>
+<p>In the readings, course activities, and assignments in Unit 5, you will explore the use of bootstrapping to make statistical estimates using TinkerPlots™. You will also learn about how sample size affects the precision/uncertainty of statistical estimates. Lastly, you will learn about the connections between hypthesis testing and estimation.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="12">
-<li id="fn12"><p>Yaddanapudi (2016) <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5187603/">published a paper</a> in the <em>Journal of Anaesthesiology, Clinical Pharmacology</em> in which she explains each of these six principles for practicing physician-scientists using an example of treatment efficacy for a drug.<a href="quantifying-results-p-value.html#fnref12">↩</a></p></li>
+<ol start="17">
+<li id="fn17"><p>Tukey, J. (1962). The future of data analysis. <em>Annals of Mathematical Statistics 33</em>(1), 1–67.<a href="estimating-uncertainty.html#fnref17">↩</a></p></li>
+<li id="fn18"><p>Here is the <a href="http://files.dnr.state.mn.us/wildlife/wolves/2016/survey-wolf.pdf">Wolf Population report for 2016</a>.<a href="estimating-uncertainty.html#fnref18">↩</a></p></li>
+<li id="fn19"><p>In two-dimensional space, like on a map, the “mean” is referred to as a <a href="https://en.wikipedia.org/wiki/Centroid">centroid</a>.<a href="estimating-uncertainty.html#fnref19">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -227,8 +237,8 @@ p = \frac{2 + 1}{100 + 1} = 0.0297
           </div>
         </div>
       </div>
-<a href="experimental-variation-and-the-randomization-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="internal-validity-evidence-and-random-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="observational-studies-and-the-bootstrap-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="uncertainty-and-bias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

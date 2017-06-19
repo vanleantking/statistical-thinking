@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="experimental-variation-and-the-randomization-test.html">
-<link rel="next" href="internal-validity-evidence-and-random-assignment.html">
+<link rel="prev" href="estimating-uncertainty.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -158,77 +158,53 @@ $(document).ready(function()
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="quantifying-results-p-value" class="section level1 unnumbered">
-<h1>Quantifying Results: p-Value</h1>
-<p>In addition to computing the range of likely results from the model, statisticians also typically provide a quantification of the likelihood of the observed result given the hypothesized model. This quantification is referred to as a <span class="math inline">\(p\)</span>-value (the <span class="math inline">\(p\)</span> stands for probability).</p>
-<p>To compute a <span class="math inline">\(p\)</span>-value, you count the number of results that are at least as extreme as the observed result, and divide this by the total number of results.</p>
-<p><span class="math display">\[
-p = \frac{\mathrm{number~of~results~more~extreme~than~observed}}{\mathrm{total~number~of~simulated~results}}
-\]</span></p>
-<p>This value is then reported as a decimal value. It quantifies the probability of observing a result at least as extreme as the observed result under the hypothesized model.</p>
-<p>To illustrate this, we will re-examine simulation results from the <em>Sleep Deprivation</em> study. Recall in that activity, the observed data had a difference in means of 15.9. Below is a plot of 100 differences in means simulated under the “no-effect”&quot; model. A vertical line is shown at the observed difference of 15.9.</p>
-<p><img src="img/sleep-deprivation-simulation.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>Since 15.9 is to the right of 0 (i.e., it is on the right-hand side of the plot) results that are <em>more extreme than the observed result</em> are to the right of 15.9. (If the observed result was to the left of 0, more extreme results would be those more negative than the observed result.) Here there are two simulated results out of 100 that are at least as extreme as 15.9 (<span class="math inline">\(\geq 15.9\)</span>). We would report the <span class="math inline">\(p\)</span>-value as 0.02.</p>
-<div id="adjustment-for-simulation-results" class="section level3 unnumbered">
-<h3>Adjustment for Simulation Results</h3>
-<p>In simulation studies, we make one small adjustment to the <span class="math inline">\(p\)</span>-value computation; we add 1 to both the numerator and denominator:</p>
-<p><span class="math display">\[
-p = \frac{\mathrm{number~of~results~more~extreme~than~observed} + 1}{\mathrm{total~number~of~simulated~results} + 1}
-\]</span></p>
-<p>This adjustment assures that we never get a <span class="math inline">\(p\)</span>-value of 0. Consider the <span class="math inline">\(p\)</span>-value if our observed result would have been 18 (instead of 15.9). There are 0 results that are at least as extreme as 18 (<span class="math inline">\(\geq 18\)</span>). Without making the simulation adjustment, we would report a <span class="math inline">\(p\)</span>-value of 0. This implies that seeing a result at least as extreme as 18 under the “no-effect” model is impossible. The problem is that we only ran 100 trials of the simulation. If we had run this simulation for all possible randomizations of the data, we would have seen results <span class="math inline">\(\geq 18\)</span>. So, to report a <span class="math inline">\(p\)</span>-value of 0 is misleading. The <span class="math inline">\(p\)</span>-value we report should be,</p>
-<p><span class="math display">\[
-p = \frac{0 + 1}{100 + 1} = 0.0099
-\]</span></p>
-<p>After the adjustment, the <span class="math inline">\(p\)</span>-value is still quite small, indicating that had we seen an observed result of 18, we would say that it is inconsistent with the model of “no-effect”. In fact it is in the outer 0.01 (1%) of the results simulated from the hypothesized model.</p>
-<p>Going back to the <span class="math inline">\(p\)</span>-value computed from the observed value of 15.9,</p>
-<p><span class="math display">\[
-p = \frac{2 + 1}{100 + 1} = 0.0297
-\]</span></p>
-<p>We can interpret the <span class="math inline">\(p\)</span>-value of 0.030 as indicating that the observed difference of 15.9 is in the outer 0.03 (3%) of results simulated from the hypothesized model. It is quite unlikely that we would see a result as extreme as 15.9, or more extreme, under the hypothesized model of “no effect”.</p>
+<div id="uncertainty-and-bias" class="section level1 unnumbered">
+<h1>Uncertainty and Bias</h1>
+<p>Since statistical estimation is a method of inference, we need to weigh validity evidence the same way we did for tests of hypotheses. Whether the estimate is a “good” estimate depends on how the sample was drawn. If a biased method of drawing the sample was used, the interval estimate will likely be biased. Let’s again illustrate using our key example.</p>
+<div style="float: left; margin-right: 5px;">
+<p><img src="img/uncertainty-and-bias-02.png" width="45%" /> <img src="img/uncertainty-and-bias-01.png" width="45%" /></p>
 </div>
-<div id="level-of-evidence" class="section level3 unnumbered">
-<h3>Level of Evidence</h3>
-<p>Small <span class="math inline">\(p\)</span>-values are used as evidence against the hypothesized model. While there are no hard-and-fast rules for gauging how strong the evidence is against the hypothesized model, the following guidelines can be used:</p>
-<ul>
-<li>A <span class="math inline">\(p\)</span>-value above 0.10 constitutes <strong>little to no evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value between 0.05 and 0.10 constitutes <strong>borderline/weak evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value between 0.025 and 0.05 constitutes <strong>moderate evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value between 0.001 and 0.025 constitutes <strong>substantial/strong evidence</strong> against the hypothesized model.</li>
-<li>A <span class="math inline">\(p\)</span>-value below 0.001 constitutes <strong>overwhelming evidence</strong> against the hypothesized model.</li>
-</ul>
-<p>In the <em>Sleep Deprivation</em> study, the <span class="math inline">\(p\)</span>-value of 0.03 would constitute moderate evidence against the hypothesized model of “no-effect”.</p>
+<div style="clear: both;">
+
+<p>The figure on the left is a metaphor for the interval estimate resulting from an unbiased sampling method, such as random sampling. The figure on the right is a metaphor for the interval estimate resulting from an biased sampling method, such as convenience sampling. Remember the goal of estimation is to give a range of likely values for the population aprameter (the keys). If a biased sampling method is used the resulting interval estimate will likely be wrong (biased).</p>
+<p>Don’t confuse uncertainty with bias. In our key example, remember the amount of uncertainty is shown by the size of the yellow circle. In the figures above, the uncertainty for both the biased and unbiased sampling methods was the same. Now, consider the following figures.</p>
+<div style="float: left; margin-right: 5px;">
+<p><img src="img/uncertainty-and-bias-03.png" width="45%" /> <img src="img/uncertainty-and-bias-04.png" width="45%" /></p>
 </div>
-<div id="six-principles-about-p-values" class="section level3 unnumbered">
-<h3>Six Principles about p-Values</h3>
-<p>Because they are so ubiquitous in the research literature for any field, and because they are often mis-interpreted (even by PhDs, researchers, and math teachers) it is important to be aware of what a <span class="math inline">\(p\)</span>-value tells you, and more importantly, what it doesn’t tell you. To this end, the American Statistical Association released a <a href="http://amstat.tandfonline.com/doi/abs/10.1080/00031305.2016.1154108#.Vt2XIOaE2MN">statement on <span class="math inline">\(p\)</span>-values</a> in which it listed six principles:<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</sup></a></p>
-<ul>
-<li><strong>Principle 1:</strong> <span class="math inline">\(P\)</span>-values can indicate how incompatible the data are with a specified statistical model.</li>
-<li><strong>Principle 2:</strong> <span class="math inline">\(P\)</span>-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.</li>
-<li><strong>Principle 3:</strong> Scientific conclusions and business or policy decisions should not be based only on whether a <span class="math inline">\(p\)</span>-value passes a specific threshold.</li>
-<li><strong>Principle 4:</strong> Proper inference requires full reporting and transparency.</li>
-<li><strong>Principle 5:</strong> A <span class="math inline">\(p\)</span>-value, or statistical significance, does not measure the size of an effect or the importance of a result.</li>
-<li><strong>Principle 6:</strong> By itself, a <span class="math inline">\(p\)</span>-value does not provide a good measure of evidence regarding a model or hypothesis.</li>
-</ul>
-<p>Principle 3 is especially poignant, as many reserachers use the criterion of 0.05 when evaluating <span class="math inline">\(p\)</span>-values to indicate whether a result is statistically significant (<span class="math inline">\(p \leq 0.05\)</span>) or not. In fact, this use was so pervasive and problematic, that the journal <em>Basic and Applied Social Psychology</em> <a href="http://www.nature.com/news/psychology-journal-bans-p-values-1.17001">banned the use of <span class="math inline">\(p\)</span>-values</a> in its published articles. It also led to many jokes about <span class="math inline">\(p\)</span>-values, including this <a href="https://xkcd.com">XKCD</a> comic.</p>
-<center>
-<img src="https://imgs.xkcd.com/comics/p_values.png" />
-</center>
+<p>The figure on the left is a metaphor for an interval that has a small amount of uncertainty (large sample size) resulting from a biased sampling method. The figure on the right is a metaphor for an interval that has a large amount of uncertainty (small sample size) resulting from an unbiased sampling method. In terms of estimating where the actual keys are, the interval represented in the right-hand figure would be better. This is an important lesson: <strong>Sample size only matters if the sampling method is unbiased.</strong></p>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="12">
-<li id="fn12"><p>Yaddanapudi (2016) <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5187603/">published a paper</a> in the <em>Journal of Anaesthesiology, Clinical Pharmacology</em> in which she explains each of these six principles for practicing physician-scientists using an example of treatment efficacy for a drug.<a href="quantifying-results-p-value.html#fnref12">↩</a></p></li>
-</ol>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="experimental-variation-and-the-randomization-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="internal-validity-evidence-and-random-assignment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estimating-uncertainty.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

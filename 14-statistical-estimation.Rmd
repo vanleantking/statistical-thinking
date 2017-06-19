@@ -1,4 +1,4 @@
-# Statistical Estimation {-}
+# Estimating Uncertainty {-}
 
 > Far better an approximate answer to the right question\hellip;than an exact answer to the wrong question.^[Tukey, J. (1962). The future of data analysis. *Annals of Mathematical Statistics 33*(1), 1&ndash;67.]
 
@@ -22,7 +22,7 @@ knitr::include_graphics("img/uncertainty-keys.png")
 
 One estimate that can be made from that data is the "mean" location.^[In two-dimensional space, like on a map, the "mean" is referred to as a [centroid](https://en.wikipedia.org/wiki/Centroid).] This location is marked with a big blue dot. This estmate is the one-location best guess about where the actual keys (the population parameter) are located. The yellow area represents the uncertainty; other places where the keys might be aside from the on-location best guess. Interpreting this uncertainty gives him a range of locations where the actual keys might be; the interval estimate. 
 
-### Quantification of Uncertainty: Margin of Error
+### Quantification of Uncertainty: Margin of Error {-}
 
 In the popular media, interval estimates are often reported using the sample estimate (statistic) and a margin of error. For example, consider the following poll results reported in the [New York Times on June 30, 2011](http://query.nytimes.com/gst/fullpage.html?res=980DE0DF1530F933A05755C0A9679D8B63):
 
@@ -61,6 +61,11 @@ As you interpret interval estimates, there are a couple things to keep in mind.
 - The interval estimate is being used to estimate the population parameter.
 - The interval estimate gives a range of plausible values for the population parameter.
 - Each value in the range are equally believable. (Values in the middle of the range are NOT more believable than values at the ends of the range.)
+
+To further help you understand ideas related to the standard error and the margin of error, we would like you to read Chapter 10 (*What is a Margin of Error?*) from a short pamphlet put together by the American Statistical Association’s Section on Survey Research. 
+
+- It is available at [http://www.amstat.org/sections/srms/pamphlet.pdf](http://www.amstat.org/sections/srms/pamphlet.pdf).
+
 
 ### Outline and Goals of Unit 5 {-}
 
