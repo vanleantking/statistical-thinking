@@ -5,7 +5,7 @@ In addition to computing the range of likely results from the model, statisticia
 To compute a $p$-value, you count the number of results that are at least as extreme as the observed result, and divide this by the total number of results. 
 
 $$
-p = \frac{\mathrm{number~of~results~more~extreme~than~observed}}{\mathrm{total~number~of~simulated~results}}
+p = \frac{\mathrm{number~of~results~at~least~as~extreme~as~observed~result}}{\mathrm{total~number~of~simulated~results}}
 $$
 
 This value is then reported as a decimal value. It quantifies the probability of observing a result at least as extreme as the observed result under the hypothesized model.

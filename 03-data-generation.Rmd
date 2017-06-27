@@ -4,7 +4,7 @@ One core skill of a practicing statistician is to be able to generate random dat
 
 For example, the model of flipping a "fair" coin is a probability model. There are two events/outcomes in the model: heads and tails. Each of these outcomes has a probability of 0.5 associaited with it. (Note that although we could say 50%, that probabilities are on the scale from 0 to 1, so are defined using decimal values.) 
 
-In the in-class activity, *Generating Random Data&mdash;Cat Factory*, you will create several probability models to generate data about cats. To prepare for this activity, watch the [Probability Simulation](http://www.tinkerplots.com/movies/probability-simulation) TinkerPlots&trade; tutorial video: 
+In the in-class activity, *Generating Random Data&mdash;Cat Factory*, you will create several probability models to generate data about cats. To prepare for this activity, watch the [Probability Simulation](http://www.tinkerplots.com/movies/probability-simulation) TinkerPlots&trade; tutorial video.
 
 
 <br />

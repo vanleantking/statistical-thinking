@@ -1,6 +1,6 @@
 # Describing Distributions {-}
 
-One of the important steps in any statistical analysis is that of summarizing data. It is good practice to examine both a graphical and a numerical summarization of your data. These summarizations are often part of the evidence that researchers use to support any conclusions drawn from the data. They also allow researchers to discover structure that might have otherwise been overlooked in the raw data that was actually collected. Lastly, both graphical and numerical summaries of the data often point to other analyses that may be undertaken with the data.
+One of the important steps in any statistical analysis is that of summarizing data. It is good practice to examine both a graphical and a numerical summarization of your data. These summaries are often part of the evidence that researchers use to support any conclusions drawn from the data. They also allow researchers to discover structure that might have otherwise been overlooked in the raw data that was actually collected. Lastly, both graphical and numerical summaries of the data often point to other analyses that may be undertaken with the data.
 
 Once raw data has been collected in a study, it can be overwhelming to pull any kind of meaning out of it. For example, it is not uncommon for Google to be dealing with millions of cases. How can Google&mdash;or any researcher for that matter&mdash;go from all of that raw data to something that can help them answer their research questions?
 
@@ -42,7 +42,7 @@ A distribution can be **unimodal** (one mode), **bimodal** (two modes), **multim
 
 ### Variation {-}
 
-The other characteristic of a distribution that should be summarized is the variation. Summarizing the variation gives an indication of how variable the data are. One method of numerically summarizing the variability in the data is to quantify how close the observations are relative to the "typical" value on average. Are the observations for the most part close to the "typical" value? Far away from the "typical" value? How close?
+A third characteristic of a distribution that should be summarized is the variation. Summarizing the variation gives an indication of how variable the data are. One method of numerically summarizing the variability in the data is to quantify how close the observations are relative to the "typical" value on average. Are the observations for the most part close to the "typical" value? Far away from the "typical" value? How close?
 
 It turns out, that the shape of the distribution also helps describe the variation in the data. For example, "bell-shaped" distributions have most observations close to the "typical" value, and more extreme observations show up both below and above the "typical" value (the variation is the same on both sides of the "typical" value). Whereas skewed distributions have many observations near the "typical" value, but extreme values only deviate from this value in one direction (there is more variation in the data on one side of the "typical" value than the other).
 
@@ -71,7 +71,7 @@ knitr::include_graphics("img/rotton-tomatoes.png")
 
 A written description of the distribution might read as follows:
 
-> The distribution of scores for this sample of 134 movies is fairly symmetric. The median score for these movies is near 60, indicating that a typical movie released in 2009 is positively reviewed by about 60% of the public. The distribution also indicates that there is a lot of variation in the movies’ scores. Most of the movies in the sample have a score between 35 and 85, suggesting large differences in the public’s opinion of the quality of these movies.
+> The distribution of scores for this sample of 134 movies is fairly symmetric. The median score for these movies is near 60, indicating that a typical movie released in 2009 is positively reviewed by about 60% of the public. The distribution also indicates that there is variation in the movies’ scores. Most of the movies in the sample have a score between 35 and 85, suggesting large differences in the public’s opinion of the quality of these movies.
 
 
-Notice that the description incorporates the context of the data, in this case film scores. This helps a reader to interpret the description.
+Notice that the description includes a description of the distribution's shape, location, and variation. It also incorporates the context of the data, in this case film scores. This helps a reader to interpret the description.
