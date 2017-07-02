@@ -79,13 +79,13 @@ $(document).ready(function()
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Statistical Thinking: A Simulation Approach to Modeling Uncertainty</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing"><i class="fa fa-check"></i>Licensing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#licensing-and-attribution"><i class="fa fa-check"></i>Licensing and Attribution</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i>Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#course-material"><i class="fa fa-check"></i>Course Material</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#tinkerplots-software"><i class="fa fa-check"></i>TinkerPlots™ Software</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#data-sets"><i class="fa fa-check"></i>Data Sets</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#lab-manual-and-data-sets"><i class="fa fa-check"></i>Lab Manual and Data Sets</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#participation-in-the-learning-process"><i class="fa fa-check"></i>Participation in the Learning Process</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="modeling-simulation.html"><a href="modeling-simulation.html"><i class="fa fa-check"></i>Modeling &amp; Simulation</a><ul>
@@ -161,10 +161,10 @@ $(document).ready(function()
 <div id="estimating-uncertainty" class="section level1 unnumbered">
 <h1>Estimating Uncertainty</h1>
 <blockquote>
-<p>Far better an approximate answer to the right question;than an exact answer to the wrong question.<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a></p>
+<p>Far better an approximate answer to the right question … than an exact answer to the wrong question.<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a></p>
 </blockquote>
-<p>Aside from hypothesis testing, one of the most common uses of statistical inference is the estimation of unknown parameters using sample data. Polling is one example where statistical estimation is used. For example, <a href="http://www.gallup.com/">Gallup</a> and the <a href="http://www.pewresearch.org/">Pew Research Center</a> are organizations that carry out public opinion research and then use statistical estimation to provide snapshots of public attitudes and opinions on topics from politics and the economy, to social awareness and health and well-being. The results of their polls are seen on a daily basis in almost every newspaper, news blog and website the world over.</p>
-<p>Statistical estimation is used by more than pollsters. Biologists, social scientists, and medical researchers use statistical estimation to quantify population characteristics. For example, the Minnesota Department of Natural Resources estimates the size of animal, bird, and fish populations yearly. These estimates are used to help set hunting and fishing regulations, as well as to allocate resources.<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a></p>
+<p>Aside from hypothesis testing, one of the most common uses of statistical inference is the estimation of unknown parameters using sample data. Polling is one application where statistical estimation is used. For example, <a href="http://www.gallup.com/">Gallup</a> and the <a href="http://www.pewresearch.org/">Pew Research Center</a> are organizations that use statistical estimation to provide snapshots of public attitudes and opinions on topics from politics and the economy, to social awareness and health and well-being. The results of their polls are seen on a daily basis in almost every newspaper, news blog and website across the world.</p>
+<p>Statistical estimation is used by more than pollsters. Biologists, social scientists, and medical researchers use statistical estimation to quantify population characteristics. For example, each year the Minnesota Department of Natural Resources estimates the populations of various species of animal, bird, and fish. These estimates are used to help set hunting and fishing regulations, as well as to allocate resources.<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a></p>
 <div id="quantifying-uncertainty-interval-estimates" class="section level3 unnumbered">
 <h3>Quantifying Uncertainty: Interval Estimates</h3>
 <p>When statisticians report sample estimates, they typically provide the value of the estimate along with the quantification of uncertainty in this estimate. This uncertainty measurement gives us an indication of the “precision” of the estimate. For example, consider again the example of the person who lost his keys. In those pictures, recall, the places where he searched for his keys (the red x’s) represents that sample data.</p>
@@ -180,7 +180,7 @@ Figure 7: This figure is a metaphor for statistical uncertainty.
 </div>
 <div id="quantification-of-uncertainty-margin-of-error" class="section level3 unnumbered">
 <h3>Quantification of Uncertainty: Margin of Error</h3>
-<p>In the popular media, interval estimates are often reported using the sample estimate (statistic) and a margin of error. For example, consider the following poll results reported in the <a href="http://query.nytimes.com/gst/fullpage.html?res=980DE0DF1530F933A05755C0A9679D8B63">New York Times on June 30, 2011</a>:</p>
+<p>Interval estimates are often reported using the sample estimate (statistic) and a margin of error. For example, consider the following poll results reported in the <a href="http://query.nytimes.com/gst/fullpage.html?res=980DE0DF1530F933A05755C0A9679D8B63">New York Times on June 30, 2011</a>:</p>
 <blockquote>
 <p>As the housing market slumped over the last few years with a speed and magnitude not seen since the Great Depression, aspects of homeownership have been debated as never before. There are tough questions about the role the government should take…includ[ing] how much of a down payment lenders should demand. Whether buyers need to come up with a 20 percent down payment—the standard for decades, but beyond the reach of many families now—is hotly debated. Fifty-eight percent of respondents say lenders should require this, while 36 percent say they should not. The nationwide telephone poll was conducted June 24–28 with 979 adults and has a margin of sampling error of plus or minus three percentage points for all adults.</p>
 </blockquote>
@@ -202,6 +202,8 @@ Figure 7: This figure is a metaphor for statistical uncertainty.
 <p><span class="math display">\[
 \mathrm{Margin~of~Error} = 2 \times \mathrm{Standard~Error}
 \]</span></p>
+<div id="what-is-the-standard-error" class="section level4">
+<h4><span class="header-section-number">0.0.0.1</span> What is the Standard Error?</h4>
 <p>The standard error is just a fancy name for the standard deviation when the distribution is composed of statistics (e.g., means, percentages). In other words, the standard deviation of a set of simulated results. That means, in practice, we can use bootstrapping to model the sampling variation, obtain the standard deviation of the bootstrapped results, and use that along with the estimate from the observed data to obtain an interval estimate.</p>
 <p>As you interpret interval estimates, there are a couple things to keep in mind.</p>
 <ul>
@@ -211,8 +213,9 @@ Figure 7: This figure is a metaphor for statistical uncertainty.
 </ul>
 <p>To further help you understand ideas related to the standard error and the margin of error, we would like you to read Chapter 10 (<em>What is a Margin of Error?</em>) from a short pamphlet put together by the American Statistical Association’s Section on Survey Research.</p>
 <ul>
-<li>It is available at <a href="http://www.amstat.org/sections/srms/pamphlet.pdf" class="uri">http://www.amstat.org/sections/srms/pamphlet.pdf</a>.</li>
+<li>It is available at <a href="http://www.prm.nau.edu/prm447/asa%20brochures/margin.pdf">http://www.prm.nau.edu/prm447/asa%20brochures/margin.pdf</a>.</li>
 </ul>
+</div>
 </div>
 <div id="outline-and-goals-of-unit-5" class="section level3 unnumbered">
 <h3>Outline and Goals of Unit 5</h3>

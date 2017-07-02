@@ -10,17 +10,18 @@ The materials on this website and in the lab manual will introduce you to the se
 
 Course readings should be completed outside of class and are intended to help you learn and extend the ideas, skills, and concepts you learn in the classroom. The readings themselves are not all "traditional" readings in the sense of words written on the screen, but instead often link to video clips, blogs and other multimedia material. 
 
-The [lab manual can be obtained here](https://github.com/zief0002/Statistical-Thinking/blob/master/Statistical-Thinking-v3.pdf?raw=true). You will need to bring a copy of the lab manual (physical or electronic) with you to class every day. 
-
 
 ### TinkerPlots&trade; Software {-}
 
 Much of the material presented in the lab manual requires the use of TinkerPlots&trade;. This software can be downloaded (for Mac or PC), and a license can be purchased from [http://www.tinkerplots.com/](http://www.tinkerplots.com/).
 
 
-### Data Sets {-}
+### Lab Manual and Data Sets {-}
 
-The data sets used in the lab manual, as well as those used in EPsy 3264 assignments, are available at [https://github.com/zief0002/Statistical-Thinking/archive/master.zip](https://github.com/zief0002/Statistical-Thinking/archive/master.zip). Clicking this link will download a ZIP file to your computer. This file includes all the data sets and the lab manual. Double-click on the ZIP file to view all the materials.
+The lab manual is what you will work from every day in class. You will need to bring a copy of the lab manual (physical or electronic) with you to class every day. There are several data sets used in the lab manual, as well as in EPsy 3264 assignments.
+
+To download a ZIP file to your computer that includes all the data sets and the lab manual, click this link: [https://github.com/zief0002/Statistical-Thinking/archive/master.zip](https://github.com/zief0002/Statistical-Thinking/archive/master.zip). Once the ZIP file has been downloaded to your computer, double-click to unzip it and access the materials.
+
 
 ### Participation in the Learning Process {-}
 

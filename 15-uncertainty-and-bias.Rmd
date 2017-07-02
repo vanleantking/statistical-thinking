@@ -9,7 +9,7 @@ Since statistical estimation is a method of inference, we need to weigh validity
 
 <div style="clear: both;">
 
-The figure on the left is a metaphor for the interval estimate resulting from an unbiased sampling method, such as random sampling. The figure on the right is a metaphor for the interval estimate resulting from an biased sampling method, such as convenience sampling. Remember the goal of estimation is to give a range of likely values for the population aprameter (the keys). If a biased sampling method is used the resulting interval estimate will likely be wrong (biased).
+The figure on the left is a metaphor for the interval estimate resulting from an unbiased sampling method, such as random sampling. The figure on the right is a metaphor for the interval estimate resulting from an biased sampling method, such as convenience sampling. Remember the goal of estimation is to give a range of likely values for the population parameter (the keys). If a biased sampling method is used the resulting interval estimate will likely be wrong (biased).
 
 Don't confuse uncertainty with bias. In our key example, remember the amount of uncertainty is shown by the size of the yellow circle. In the figures above, the uncertainty for both the biased and unbiased sampling methods was the same. Now, consider the following figures.
 

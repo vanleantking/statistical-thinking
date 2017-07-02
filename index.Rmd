@@ -30,7 +30,16 @@ This website is intended to serve as an organizational hub for the most current 
 
 <br />
 
-### Licensing {-}
+The resources that accompany this website include:
+
+- A lab manual [PDF copy available here](https://github.com/zief0002/Statistical-Thinking/blob/master/Statistical-Thinking-v4.pdf?raw=true)
+- Data sets used in the lab manual [available here](https://github.com/zief0002/Statistical-Thinking/archive/master.zip).
+
+You can read more about these resources in the introduction.
+
+<br />
+
+### Licensing and Attribution {-}
 
 Copyright &copy; 2017 Catalysts for Change
 
@@ -44,6 +53,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 The work to create the material appearing in the book was made possible by the National Science Foundation (DUE–0814433). 
 
+The material on this website and in the lab manual is a direct reflection of the ideas, work, and effort of several Catalysts for Change. They include (alphabetically): Ethan Brown, Jonathan Brown, Beth Chance, George Cobb, Robert delMas, Katherine Edwards, Michelle Everson, Elizabeth Fry, Joan Garfield, Meg Goerdt, Robert Gould, John Holcomb, Michael Huberty, Rebekah R. Isaak, Nicola Justice, Laura Le, Suzanne Loch, Allan Rossman, Anelise Sabbag, Andrew Zieffler, and Laura Ziegler
+
+
+Additionally, some of the activities presented in the lab manual were originally developed by Beth Chance, George Cobb, John Holcomb, and Allan Rossman as part of their NSF-funded project [Concepts of Statistical Inference: A Randomization-Based Curriculum](http://statweb.calpoly.edu/csi/) (NSF CCLI- DUE-0633349). 
+
 <br />
 
 
@@ -54,6 +68,7 @@ There are two [Google Fonts](https://fonts.google.com/) used on the website. The
 Icons used on the website are:
 
 - [Key](https://thenounproject.com/iconproducer/collection/keys/?oq=key&cidx=0&i=713748) by Iconic from the [Noun Project](https://thenounproject.com/)
+
 
 
 
